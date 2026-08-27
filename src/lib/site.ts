@@ -11,46 +11,47 @@ export type NavItem = {
 export const NAV: NavItem[] = [
   { label: "Home", to: "/" },
   {
-    label: "About",
-    to: "/about/vision-mission",
+    label: "About Us",
+    to: "/about/managing-committee",
     children: [
-      { label: "Vision & Mission", to: "/about/vision-mission" },
-      { label: "History", to: "/about/history" },
-      { label: "Principal's Message", to: "/about/principals-message" },
-      { label: "Founders Vision", to: "/about/founders-vision" },
-      { label: "Advisory Board", to: "/about/advisory-board" },
-      { label: "Testimonials", to: "/about/testimonials" },
-    ],
-  },
-  {
-    label: "Academics",
-    to: "/academics/curriculum",
-    children: [
-      { label: "Curriculum", to: "/academics/curriculum" },
-      { label: "Teaching Methodology", to: "/academics/teaching-methodology" },
-      { label: "Method of Evaluation", to: "/academics/method-of-evaluation" },
-      { label: "Online Learning", to: "/academics/online-learning" },
+      { label: "Managing Committee", to: "/about/managing-committee" },
+      { label: "Facilities", to: "/about/facilities" },
     ],
   },
   {
     label: "Admissions",
-    to: "/admissions/online-registration",
+    to: "/admissions/uniform",
     children: [
-      { label: "Online Registration", to: "/admissions/online-registration" },
-      { label: "FAQs", to: "/admissions/faqs" },
+      { label: "School Uniform Details", to: "/admissions/uniform" },
+      { label: "School Fee", to: "/admissions/fee" },
+      { label: "Student & Parent Portal", to: "/admissions/portal" },
     ],
   },
   {
-    label: "Life at PS Matric",
-    to: "/life/infrastructure",
+    label: "Academic Curriculum",
+    to: "/academics/curriculum",
     children: [
-      { label: "Infrastructure", to: "/life/infrastructure" },
-      { label: "Student Clubs", to: "/life/student-clubs" },
-      { label: "Achievements", to: "/life/achievements" },
-      { label: "Gallery", to: "/life/gallery" },
+      { label: "Curriculum", to: "/academics/curriculum" },
+      { label: "Activity Schedule", to: "/academics/activity-schedule" },
+      { label: "Examination", to: "/academics/examination" },
     ],
   },
-  { label: "Alumni Connect", to: "/alumni-connect" },
+  {
+    label: "Events",
+    to: "/events/akshara-abhyas",
+    children: [
+      { label: "Akshara Abhyas", to: "/events/akshara-abhyas" },
+      { label: "Vidhya Pravesh", to: "/events/vidhya-pravesh" },
+      { label: "Sports Day", to: "/events/sports-day" },
+      { label: "Annual Day", to: "/events/annual-day" },
+      { label: "Independence Day", to: "/events/independence-day" },
+      { label: "Project Day", to: "/events/project-day" },
+      { label: "Fancy Dress", to: "/events/fancy-dress" },
+      { label: "Republic Day", to: "/events/republic-day" },
+      { label: "Primary Sports Day", to: "/events/primary-sports-day" },
+      { label: "Primary Annual Day", to: "/events/primary-annual-day" },
+    ],
+  },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -58,7 +59,7 @@ export const CONTACT = {
   address: "PS Matriculation Higher Secondary School, Chennai, Tamil Nadu, India",
   phone: "+91 00000 00000",
   admissions: "admissions@psmatric.in",
-  careers: "careers@psmatric.in",
+  careers: "career_psmatric@gmail.com",
   info: "info@psmatric.in",
 };
 
@@ -74,6 +75,12 @@ export const IMAGES = {
     "/images/hero/hero-4.jpg",
   ],
   principal: "/images/principal.jpeg",
+  correspondent: "/images/correspondent.jpeg",
+  uniform: {
+    lkgUkg: "/images/uniform/lkg-ukg.jpeg",
+    primary: "/images/uniform/primary.jpeg",
+    secondary: "/images/uniform/secondary.jpeg",
+  },
   gallery: [
     { src: "/images/gallery/gallery-1.png", caption: "Annual Day" },
     { src: "/images/gallery/gallery-2.png", caption: "Science Lab" },

@@ -14,17 +14,34 @@ import { Route as AlumniConnectRouteImport } from './routes/alumni-connect'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as MandatoryDisclosureRouteImport } from './routes/mandatory-disclosure'
 import { Route as AboutAdvisoryBoardRouteImport } from './routes/about.advisory-board'
+import { Route as AboutFacilitiesRouteImport } from './routes/about.facilities'
 import { Route as AboutFoundersVisionRouteImport } from './routes/about.founders-vision'
 import { Route as AboutHistoryRouteImport } from './routes/about.history'
+import { Route as AboutManagingCommitteeRouteImport } from './routes/about.managing-committee'
 import { Route as AboutPrincipalsMessageRouteImport } from './routes/about.principals-message'
 import { Route as AboutTestimonialsRouteImport } from './routes/about.testimonials'
 import { Route as AboutVisionMissionRouteImport } from './routes/about.vision-mission'
+import { Route as AcademicsActivityScheduleRouteImport } from './routes/academics.activity-schedule'
 import { Route as AcademicsCurriculumRouteImport } from './routes/academics.curriculum'
+import { Route as AcademicsExaminationRouteImport } from './routes/academics.examination'
 import { Route as AcademicsMethodOfEvaluationRouteImport } from './routes/academics.method-of-evaluation'
 import { Route as AcademicsOnlineLearningRouteImport } from './routes/academics.online-learning'
 import { Route as AcademicsTeachingMethodologyRouteImport } from './routes/academics.teaching-methodology'
 import { Route as AdmissionsFaqsRouteImport } from './routes/admissions.faqs'
+import { Route as AdmissionsFeeRouteImport } from './routes/admissions.fee'
 import { Route as AdmissionsOnlineRegistrationRouteImport } from './routes/admissions.online-registration'
+import { Route as AdmissionsPortalRouteImport } from './routes/admissions.portal'
+import { Route as AdmissionsUniformRouteImport } from './routes/admissions.uniform'
+import { Route as EventsAksharaAbhyasRouteImport } from './routes/events.akshara-abhyas'
+import { Route as EventsAnnualDayRouteImport } from './routes/events.annual-day'
+import { Route as EventsFancyDressRouteImport } from './routes/events.fancy-dress'
+import { Route as EventsIndependenceDayRouteImport } from './routes/events.independence-day'
+import { Route as EventsPrimaryAnnualDayRouteImport } from './routes/events.primary-annual-day'
+import { Route as EventsPrimarySportsDayRouteImport } from './routes/events.primary-sports-day'
+import { Route as EventsProjectDayRouteImport } from './routes/events.project-day'
+import { Route as EventsRepublicDayRouteImport } from './routes/events.republic-day'
+import { Route as EventsSportsDayRouteImport } from './routes/events.sports-day'
+import { Route as EventsVidhyaPraveshRouteImport } from './routes/events.vidhya-pravesh'
 import { Route as LifeAchievementsRouteImport } from './routes/life.achievements'
 import { Route as LifeGalleryRouteImport } from './routes/life.gallery'
 import { Route as LifeInfrastructureRouteImport } from './routes/life.infrastructure'
@@ -55,6 +72,11 @@ const AboutAdvisoryBoardRoute = AboutAdvisoryBoardRouteImport.update({
   path: '/about/advisory-board',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutFacilitiesRoute = AboutFacilitiesRouteImport.update({
+  id: '/about/facilities',
+  path: '/about/facilities',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutFoundersVisionRoute = AboutFoundersVisionRouteImport.update({
   id: '/about/founders-vision',
   path: '/about/founders-vision',
@@ -63,6 +85,11 @@ const AboutFoundersVisionRoute = AboutFoundersVisionRouteImport.update({
 const AboutHistoryRoute = AboutHistoryRouteImport.update({
   id: '/about/history',
   path: '/about/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutManagingCommitteeRoute = AboutManagingCommitteeRouteImport.update({
+  id: '/about/managing-committee',
+  path: '/about/managing-committee',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutPrincipalsMessageRoute = AboutPrincipalsMessageRouteImport.update({
@@ -80,9 +107,20 @@ const AboutVisionMissionRoute = AboutVisionMissionRouteImport.update({
   path: '/about/vision-mission',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AcademicsActivityScheduleRoute =
+  AcademicsActivityScheduleRouteImport.update({
+    id: '/academics/activity-schedule',
+    path: '/academics/activity-schedule',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AcademicsCurriculumRoute = AcademicsCurriculumRouteImport.update({
   id: '/academics/curriculum',
   path: '/academics/curriculum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademicsExaminationRoute = AcademicsExaminationRouteImport.update({
+  id: '/academics/examination',
+  path: '/academics/examination',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AcademicsMethodOfEvaluationRoute =
@@ -107,12 +145,77 @@ const AdmissionsFaqsRoute = AdmissionsFaqsRouteImport.update({
   path: '/admissions/faqs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdmissionsFeeRoute = AdmissionsFeeRouteImport.update({
+  id: '/admissions/fee',
+  path: '/admissions/fee',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdmissionsOnlineRegistrationRoute =
   AdmissionsOnlineRegistrationRouteImport.update({
     id: '/admissions/online-registration',
     path: '/admissions/online-registration',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AdmissionsPortalRoute = AdmissionsPortalRouteImport.update({
+  id: '/admissions/portal',
+  path: '/admissions/portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdmissionsUniformRoute = AdmissionsUniformRouteImport.update({
+  id: '/admissions/uniform',
+  path: '/admissions/uniform',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsAksharaAbhyasRoute = EventsAksharaAbhyasRouteImport.update({
+  id: '/events/akshara-abhyas',
+  path: '/events/akshara-abhyas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsAnnualDayRoute = EventsAnnualDayRouteImport.update({
+  id: '/events/annual-day',
+  path: '/events/annual-day',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsFancyDressRoute = EventsFancyDressRouteImport.update({
+  id: '/events/fancy-dress',
+  path: '/events/fancy-dress',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsIndependenceDayRoute = EventsIndependenceDayRouteImport.update({
+  id: '/events/independence-day',
+  path: '/events/independence-day',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsPrimaryAnnualDayRoute = EventsPrimaryAnnualDayRouteImport.update({
+  id: '/events/primary-annual-day',
+  path: '/events/primary-annual-day',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsPrimarySportsDayRoute = EventsPrimarySportsDayRouteImport.update({
+  id: '/events/primary-sports-day',
+  path: '/events/primary-sports-day',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsProjectDayRoute = EventsProjectDayRouteImport.update({
+  id: '/events/project-day',
+  path: '/events/project-day',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRepublicDayRoute = EventsRepublicDayRouteImport.update({
+  id: '/events/republic-day',
+  path: '/events/republic-day',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsSportsDayRoute = EventsSportsDayRouteImport.update({
+  id: '/events/sports-day',
+  path: '/events/sports-day',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsVidhyaPraveshRoute = EventsVidhyaPraveshRouteImport.update({
+  id: '/events/vidhya-pravesh',
+  path: '/events/vidhya-pravesh',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LifeAchievementsRoute = LifeAchievementsRouteImport.update({
   id: '/life/achievements',
   path: '/life/achievements',
@@ -140,17 +243,34 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/mandatory-disclosure': typeof MandatoryDisclosureRoute
   '/about/advisory-board': typeof AboutAdvisoryBoardRoute
+  '/about/facilities': typeof AboutFacilitiesRoute
   '/about/founders-vision': typeof AboutFoundersVisionRoute
   '/about/history': typeof AboutHistoryRoute
+  '/about/managing-committee': typeof AboutManagingCommitteeRoute
   '/about/principals-message': typeof AboutPrincipalsMessageRoute
   '/about/testimonials': typeof AboutTestimonialsRoute
   '/about/vision-mission': typeof AboutVisionMissionRoute
+  '/academics/activity-schedule': typeof AcademicsActivityScheduleRoute
   '/academics/curriculum': typeof AcademicsCurriculumRoute
+  '/academics/examination': typeof AcademicsExaminationRoute
   '/academics/method-of-evaluation': typeof AcademicsMethodOfEvaluationRoute
   '/academics/online-learning': typeof AcademicsOnlineLearningRoute
   '/academics/teaching-methodology': typeof AcademicsTeachingMethodologyRoute
   '/admissions/faqs': typeof AdmissionsFaqsRoute
+  '/admissions/fee': typeof AdmissionsFeeRoute
   '/admissions/online-registration': typeof AdmissionsOnlineRegistrationRoute
+  '/admissions/portal': typeof AdmissionsPortalRoute
+  '/admissions/uniform': typeof AdmissionsUniformRoute
+  '/events/akshara-abhyas': typeof EventsAksharaAbhyasRoute
+  '/events/annual-day': typeof EventsAnnualDayRoute
+  '/events/fancy-dress': typeof EventsFancyDressRoute
+  '/events/independence-day': typeof EventsIndependenceDayRoute
+  '/events/primary-annual-day': typeof EventsPrimaryAnnualDayRoute
+  '/events/primary-sports-day': typeof EventsPrimarySportsDayRoute
+  '/events/project-day': typeof EventsProjectDayRoute
+  '/events/republic-day': typeof EventsRepublicDayRoute
+  '/events/sports-day': typeof EventsSportsDayRoute
+  '/events/vidhya-pravesh': typeof EventsVidhyaPraveshRoute
   '/life/achievements': typeof LifeAchievementsRoute
   '/life/gallery': typeof LifeGalleryRoute
   '/life/infrastructure': typeof LifeInfrastructureRoute
@@ -162,17 +282,34 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/mandatory-disclosure': typeof MandatoryDisclosureRoute
   '/about/advisory-board': typeof AboutAdvisoryBoardRoute
+  '/about/facilities': typeof AboutFacilitiesRoute
   '/about/founders-vision': typeof AboutFoundersVisionRoute
   '/about/history': typeof AboutHistoryRoute
+  '/about/managing-committee': typeof AboutManagingCommitteeRoute
   '/about/principals-message': typeof AboutPrincipalsMessageRoute
   '/about/testimonials': typeof AboutTestimonialsRoute
   '/about/vision-mission': typeof AboutVisionMissionRoute
+  '/academics/activity-schedule': typeof AcademicsActivityScheduleRoute
   '/academics/curriculum': typeof AcademicsCurriculumRoute
+  '/academics/examination': typeof AcademicsExaminationRoute
   '/academics/method-of-evaluation': typeof AcademicsMethodOfEvaluationRoute
   '/academics/online-learning': typeof AcademicsOnlineLearningRoute
   '/academics/teaching-methodology': typeof AcademicsTeachingMethodologyRoute
   '/admissions/faqs': typeof AdmissionsFaqsRoute
+  '/admissions/fee': typeof AdmissionsFeeRoute
   '/admissions/online-registration': typeof AdmissionsOnlineRegistrationRoute
+  '/admissions/portal': typeof AdmissionsPortalRoute
+  '/admissions/uniform': typeof AdmissionsUniformRoute
+  '/events/akshara-abhyas': typeof EventsAksharaAbhyasRoute
+  '/events/annual-day': typeof EventsAnnualDayRoute
+  '/events/fancy-dress': typeof EventsFancyDressRoute
+  '/events/independence-day': typeof EventsIndependenceDayRoute
+  '/events/primary-annual-day': typeof EventsPrimaryAnnualDayRoute
+  '/events/primary-sports-day': typeof EventsPrimarySportsDayRoute
+  '/events/project-day': typeof EventsProjectDayRoute
+  '/events/republic-day': typeof EventsRepublicDayRoute
+  '/events/sports-day': typeof EventsSportsDayRoute
+  '/events/vidhya-pravesh': typeof EventsVidhyaPraveshRoute
   '/life/achievements': typeof LifeAchievementsRoute
   '/life/gallery': typeof LifeGalleryRoute
   '/life/infrastructure': typeof LifeInfrastructureRoute
@@ -185,17 +322,34 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/mandatory-disclosure': typeof MandatoryDisclosureRoute
   '/about/advisory-board': typeof AboutAdvisoryBoardRoute
+  '/about/facilities': typeof AboutFacilitiesRoute
   '/about/founders-vision': typeof AboutFoundersVisionRoute
   '/about/history': typeof AboutHistoryRoute
+  '/about/managing-committee': typeof AboutManagingCommitteeRoute
   '/about/principals-message': typeof AboutPrincipalsMessageRoute
   '/about/testimonials': typeof AboutTestimonialsRoute
   '/about/vision-mission': typeof AboutVisionMissionRoute
+  '/academics/activity-schedule': typeof AcademicsActivityScheduleRoute
   '/academics/curriculum': typeof AcademicsCurriculumRoute
+  '/academics/examination': typeof AcademicsExaminationRoute
   '/academics/method-of-evaluation': typeof AcademicsMethodOfEvaluationRoute
   '/academics/online-learning': typeof AcademicsOnlineLearningRoute
   '/academics/teaching-methodology': typeof AcademicsTeachingMethodologyRoute
   '/admissions/faqs': typeof AdmissionsFaqsRoute
+  '/admissions/fee': typeof AdmissionsFeeRoute
   '/admissions/online-registration': typeof AdmissionsOnlineRegistrationRoute
+  '/admissions/portal': typeof AdmissionsPortalRoute
+  '/admissions/uniform': typeof AdmissionsUniformRoute
+  '/events/akshara-abhyas': typeof EventsAksharaAbhyasRoute
+  '/events/annual-day': typeof EventsAnnualDayRoute
+  '/events/fancy-dress': typeof EventsFancyDressRoute
+  '/events/independence-day': typeof EventsIndependenceDayRoute
+  '/events/primary-annual-day': typeof EventsPrimaryAnnualDayRoute
+  '/events/primary-sports-day': typeof EventsPrimarySportsDayRoute
+  '/events/project-day': typeof EventsProjectDayRoute
+  '/events/republic-day': typeof EventsRepublicDayRoute
+  '/events/sports-day': typeof EventsSportsDayRoute
+  '/events/vidhya-pravesh': typeof EventsVidhyaPraveshRoute
   '/life/achievements': typeof LifeAchievementsRoute
   '/life/gallery': typeof LifeGalleryRoute
   '/life/infrastructure': typeof LifeInfrastructureRoute
@@ -209,17 +363,34 @@ export interface FileRouteTypes {
     | '/contact'
     | '/mandatory-disclosure'
     | '/about/advisory-board'
+    | '/about/facilities'
     | '/about/founders-vision'
     | '/about/history'
+    | '/about/managing-committee'
     | '/about/principals-message'
     | '/about/testimonials'
     | '/about/vision-mission'
+    | '/academics/activity-schedule'
     | '/academics/curriculum'
+    | '/academics/examination'
     | '/academics/method-of-evaluation'
     | '/academics/online-learning'
     | '/academics/teaching-methodology'
     | '/admissions/faqs'
+    | '/admissions/fee'
     | '/admissions/online-registration'
+    | '/admissions/portal'
+    | '/admissions/uniform'
+    | '/events/akshara-abhyas'
+    | '/events/annual-day'
+    | '/events/fancy-dress'
+    | '/events/independence-day'
+    | '/events/primary-annual-day'
+    | '/events/primary-sports-day'
+    | '/events/project-day'
+    | '/events/republic-day'
+    | '/events/sports-day'
+    | '/events/vidhya-pravesh'
     | '/life/achievements'
     | '/life/gallery'
     | '/life/infrastructure'
@@ -231,17 +402,34 @@ export interface FileRouteTypes {
     | '/contact'
     | '/mandatory-disclosure'
     | '/about/advisory-board'
+    | '/about/facilities'
     | '/about/founders-vision'
     | '/about/history'
+    | '/about/managing-committee'
     | '/about/principals-message'
     | '/about/testimonials'
     | '/about/vision-mission'
+    | '/academics/activity-schedule'
     | '/academics/curriculum'
+    | '/academics/examination'
     | '/academics/method-of-evaluation'
     | '/academics/online-learning'
     | '/academics/teaching-methodology'
     | '/admissions/faqs'
+    | '/admissions/fee'
     | '/admissions/online-registration'
+    | '/admissions/portal'
+    | '/admissions/uniform'
+    | '/events/akshara-abhyas'
+    | '/events/annual-day'
+    | '/events/fancy-dress'
+    | '/events/independence-day'
+    | '/events/primary-annual-day'
+    | '/events/primary-sports-day'
+    | '/events/project-day'
+    | '/events/republic-day'
+    | '/events/sports-day'
+    | '/events/vidhya-pravesh'
     | '/life/achievements'
     | '/life/gallery'
     | '/life/infrastructure'
@@ -253,17 +441,34 @@ export interface FileRouteTypes {
     | '/contact'
     | '/mandatory-disclosure'
     | '/about/advisory-board'
+    | '/about/facilities'
     | '/about/founders-vision'
     | '/about/history'
+    | '/about/managing-committee'
     | '/about/principals-message'
     | '/about/testimonials'
     | '/about/vision-mission'
+    | '/academics/activity-schedule'
     | '/academics/curriculum'
+    | '/academics/examination'
     | '/academics/method-of-evaluation'
     | '/academics/online-learning'
     | '/academics/teaching-methodology'
     | '/admissions/faqs'
+    | '/admissions/fee'
     | '/admissions/online-registration'
+    | '/admissions/portal'
+    | '/admissions/uniform'
+    | '/events/akshara-abhyas'
+    | '/events/annual-day'
+    | '/events/fancy-dress'
+    | '/events/independence-day'
+    | '/events/primary-annual-day'
+    | '/events/primary-sports-day'
+    | '/events/project-day'
+    | '/events/republic-day'
+    | '/events/sports-day'
+    | '/events/vidhya-pravesh'
     | '/life/achievements'
     | '/life/gallery'
     | '/life/infrastructure'
@@ -276,17 +481,34 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   MandatoryDisclosureRoute: typeof MandatoryDisclosureRoute
   AboutAdvisoryBoardRoute: typeof AboutAdvisoryBoardRoute
+  AboutFacilitiesRoute: typeof AboutFacilitiesRoute
   AboutFoundersVisionRoute: typeof AboutFoundersVisionRoute
   AboutHistoryRoute: typeof AboutHistoryRoute
+  AboutManagingCommitteeRoute: typeof AboutManagingCommitteeRoute
   AboutPrincipalsMessageRoute: typeof AboutPrincipalsMessageRoute
   AboutTestimonialsRoute: typeof AboutTestimonialsRoute
   AboutVisionMissionRoute: typeof AboutVisionMissionRoute
+  AcademicsActivityScheduleRoute: typeof AcademicsActivityScheduleRoute
   AcademicsCurriculumRoute: typeof AcademicsCurriculumRoute
+  AcademicsExaminationRoute: typeof AcademicsExaminationRoute
   AcademicsMethodOfEvaluationRoute: typeof AcademicsMethodOfEvaluationRoute
   AcademicsOnlineLearningRoute: typeof AcademicsOnlineLearningRoute
   AcademicsTeachingMethodologyRoute: typeof AcademicsTeachingMethodologyRoute
   AdmissionsFaqsRoute: typeof AdmissionsFaqsRoute
+  AdmissionsFeeRoute: typeof AdmissionsFeeRoute
   AdmissionsOnlineRegistrationRoute: typeof AdmissionsOnlineRegistrationRoute
+  AdmissionsPortalRoute: typeof AdmissionsPortalRoute
+  AdmissionsUniformRoute: typeof AdmissionsUniformRoute
+  EventsAksharaAbhyasRoute: typeof EventsAksharaAbhyasRoute
+  EventsAnnualDayRoute: typeof EventsAnnualDayRoute
+  EventsFancyDressRoute: typeof EventsFancyDressRoute
+  EventsIndependenceDayRoute: typeof EventsIndependenceDayRoute
+  EventsPrimaryAnnualDayRoute: typeof EventsPrimaryAnnualDayRoute
+  EventsPrimarySportsDayRoute: typeof EventsPrimarySportsDayRoute
+  EventsProjectDayRoute: typeof EventsProjectDayRoute
+  EventsRepublicDayRoute: typeof EventsRepublicDayRoute
+  EventsSportsDayRoute: typeof EventsSportsDayRoute
+  EventsVidhyaPraveshRoute: typeof EventsVidhyaPraveshRoute
   LifeAchievementsRoute: typeof LifeAchievementsRoute
   LifeGalleryRoute: typeof LifeGalleryRoute
   LifeInfrastructureRoute: typeof LifeInfrastructureRoute
@@ -330,6 +552,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutAdvisoryBoardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about/facilities': {
+      id: '/about/facilities'
+      path: '/about/facilities'
+      fullPath: '/about/facilities'
+      preLoaderRoute: typeof AboutFacilitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about/founders-vision': {
       id: '/about/founders-vision'
       path: '/about/founders-vision'
@@ -342,6 +571,13 @@ declare module '@tanstack/react-router' {
       path: '/about/history'
       fullPath: '/about/history'
       preLoaderRoute: typeof AboutHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/managing-committee': {
+      id: '/about/managing-committee'
+      path: '/about/managing-committee'
+      fullPath: '/about/managing-committee'
+      preLoaderRoute: typeof AboutManagingCommitteeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about/principals-message': {
@@ -365,11 +601,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutVisionMissionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/academics/activity-schedule': {
+      id: '/academics/activity-schedule'
+      path: '/academics/activity-schedule'
+      fullPath: '/academics/activity-schedule'
+      preLoaderRoute: typeof AcademicsActivityScheduleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/academics/curriculum': {
       id: '/academics/curriculum'
       path: '/academics/curriculum'
       fullPath: '/academics/curriculum'
       preLoaderRoute: typeof AcademicsCurriculumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academics/examination': {
+      id: '/academics/examination'
+      path: '/academics/examination'
+      fullPath: '/academics/examination'
+      preLoaderRoute: typeof AcademicsExaminationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/academics/method-of-evaluation': {
@@ -400,11 +650,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdmissionsFaqsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admissions/fee': {
+      id: '/admissions/fee'
+      path: '/admissions/fee'
+      fullPath: '/admissions/fee'
+      preLoaderRoute: typeof AdmissionsFeeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admissions/online-registration': {
       id: '/admissions/online-registration'
       path: '/admissions/online-registration'
       fullPath: '/admissions/online-registration'
       preLoaderRoute: typeof AdmissionsOnlineRegistrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admissions/portal': {
+      id: '/admissions/portal'
+      path: '/admissions/portal'
+      fullPath: '/admissions/portal'
+      preLoaderRoute: typeof AdmissionsPortalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admissions/uniform': {
+      id: '/admissions/uniform'
+      path: '/admissions/uniform'
+      fullPath: '/admissions/uniform'
+      preLoaderRoute: typeof AdmissionsUniformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/akshara-abhyas': {
+      id: '/events/akshara-abhyas'
+      path: '/events/akshara-abhyas'
+      fullPath: '/events/akshara-abhyas'
+      preLoaderRoute: typeof EventsAksharaAbhyasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/annual-day': {
+      id: '/events/annual-day'
+      path: '/events/annual-day'
+      fullPath: '/events/annual-day'
+      preLoaderRoute: typeof EventsAnnualDayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/fancy-dress': {
+      id: '/events/fancy-dress'
+      path: '/events/fancy-dress'
+      fullPath: '/events/fancy-dress'
+      preLoaderRoute: typeof EventsFancyDressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/independence-day': {
+      id: '/events/independence-day'
+      path: '/events/independence-day'
+      fullPath: '/events/independence-day'
+      preLoaderRoute: typeof EventsIndependenceDayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/primary-annual-day': {
+      id: '/events/primary-annual-day'
+      path: '/events/primary-annual-day'
+      fullPath: '/events/primary-annual-day'
+      preLoaderRoute: typeof EventsPrimaryAnnualDayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/primary-sports-day': {
+      id: '/events/primary-sports-day'
+      path: '/events/primary-sports-day'
+      fullPath: '/events/primary-sports-day'
+      preLoaderRoute: typeof EventsPrimarySportsDayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/project-day': {
+      id: '/events/project-day'
+      path: '/events/project-day'
+      fullPath: '/events/project-day'
+      preLoaderRoute: typeof EventsProjectDayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/republic-day': {
+      id: '/events/republic-day'
+      path: '/events/republic-day'
+      fullPath: '/events/republic-day'
+      preLoaderRoute: typeof EventsRepublicDayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/sports-day': {
+      id: '/events/sports-day'
+      path: '/events/sports-day'
+      fullPath: '/events/sports-day'
+      preLoaderRoute: typeof EventsSportsDayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/vidhya-pravesh': {
+      id: '/events/vidhya-pravesh'
+      path: '/events/vidhya-pravesh'
+      fullPath: '/events/vidhya-pravesh'
+      preLoaderRoute: typeof EventsVidhyaPraveshRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/life/achievements': {
@@ -444,17 +785,34 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   MandatoryDisclosureRoute: MandatoryDisclosureRoute,
   AboutAdvisoryBoardRoute: AboutAdvisoryBoardRoute,
+  AboutFacilitiesRoute: AboutFacilitiesRoute,
   AboutFoundersVisionRoute: AboutFoundersVisionRoute,
   AboutHistoryRoute: AboutHistoryRoute,
+  AboutManagingCommitteeRoute: AboutManagingCommitteeRoute,
   AboutPrincipalsMessageRoute: AboutPrincipalsMessageRoute,
   AboutTestimonialsRoute: AboutTestimonialsRoute,
   AboutVisionMissionRoute: AboutVisionMissionRoute,
+  AcademicsActivityScheduleRoute: AcademicsActivityScheduleRoute,
   AcademicsCurriculumRoute: AcademicsCurriculumRoute,
+  AcademicsExaminationRoute: AcademicsExaminationRoute,
   AcademicsMethodOfEvaluationRoute: AcademicsMethodOfEvaluationRoute,
   AcademicsOnlineLearningRoute: AcademicsOnlineLearningRoute,
   AcademicsTeachingMethodologyRoute: AcademicsTeachingMethodologyRoute,
   AdmissionsFaqsRoute: AdmissionsFaqsRoute,
+  AdmissionsFeeRoute: AdmissionsFeeRoute,
   AdmissionsOnlineRegistrationRoute: AdmissionsOnlineRegistrationRoute,
+  AdmissionsPortalRoute: AdmissionsPortalRoute,
+  AdmissionsUniformRoute: AdmissionsUniformRoute,
+  EventsAksharaAbhyasRoute: EventsAksharaAbhyasRoute,
+  EventsAnnualDayRoute: EventsAnnualDayRoute,
+  EventsFancyDressRoute: EventsFancyDressRoute,
+  EventsIndependenceDayRoute: EventsIndependenceDayRoute,
+  EventsPrimaryAnnualDayRoute: EventsPrimaryAnnualDayRoute,
+  EventsPrimarySportsDayRoute: EventsPrimarySportsDayRoute,
+  EventsProjectDayRoute: EventsProjectDayRoute,
+  EventsRepublicDayRoute: EventsRepublicDayRoute,
+  EventsSportsDayRoute: EventsSportsDayRoute,
+  EventsVidhyaPraveshRoute: EventsVidhyaPraveshRoute,
   LifeAchievementsRoute: LifeAchievementsRoute,
   LifeGalleryRoute: LifeGalleryRoute,
   LifeInfrastructureRoute: LifeInfrastructureRoute,

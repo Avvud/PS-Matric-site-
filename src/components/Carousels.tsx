@@ -97,7 +97,6 @@ export function HeroCarousel({
           )}
         >
           <SmartImage src={src} alt="Campus" className="h-full w-full" />
-          <div className="absolute inset-0 bg-navy-deep/55" />
         </div>
       ))}
 

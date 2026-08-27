@@ -93,6 +93,64 @@ function Home() {
         </div>
       </section>
 
+      {/* Correspondent's Desk */}
+      <section className="bg-secondary py-16">
+        <div className="container-page">
+          <div className="grid gap-10 rounded-2xl bg-background p-6 shadow-card sm:p-10 md:grid-cols-[320px_1fr] md:items-center">
+            <div>
+              <div className="rounded-2xl bg-navy p-3 shadow-soft">
+                <SmartImage
+                  src={IMAGES.correspondent}
+                  alt="Correspondent placeholder"
+                  className="aspect-[3/4] rounded-xl"
+                />
+              </div>
+              <p className="mt-4 text-center font-display text-lg font-bold uppercase text-primary">
+                Honorary Correspondent
+              </p>
+              <p className="text-center text-xs uppercase tracking-widest text-muted-foreground">
+                P.S. Matriculation Higher Secondary School
+              </p>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-gold">
+                Correspondent&apos;s Desk
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-bold uppercase text-primary sm:text-4xl">
+                From the Correspondent&apos;s Desk
+              </h2>
+              <div className="mt-5 space-y-4 font-serif text-[17px] leading-8 text-foreground/85">
+                <p>
+                  Our respectful salutations to our revered Founder, Sri Pennathur Subramania Iyer,
+                  a true philanthropist who devoted his wealth, efforts and vision to the cause of
+                  education, whose ideals continue to illuminate our path.
+                </p>
+                <p>Welcome to the website of P.S. Matriculation Higher Secondary School.</p>
+                <p className="font-semibold italic text-gold">“Tamaso Mā Jyotir Gamaya”</p>
+                <p>
+                  This timeless prayer beautifully reflects the purpose of education: to dispel
+                  ignorance, awaken knowledge, nurture values and empower every child to move
+                  towards a brighter and more meaningful future.
+                </p>
+                <p>
+                  At P.S. Matriculation Higher Secondary School, we strive to blend our rich heritage
+                  with the aspirations of the present, providing our students with a safe, nurturing
+                  and inspiring environment in which they can learn, grow and serve society in all
+                  walks of life.
+                </p>
+                <p>
+                  Guided by the ideals of our Founder and strengthened by the commitment of our
+                  teachers, staff, parents, alumni and well-wishers, we remain dedicated to academic
+                  excellence, character, discipline and responsible citizenship.
+                </p>
+                <p>May the light of knowledge and wisdom continue to guide every member of our school family.</p>
+                <p className="font-semibold italic text-gold">Tamaso Mā Jyotir Gamaya.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Principal's Message */}
       <section className="bg-secondary py-16">
         <div className="container-page">
