@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { GraduationCap, Users, Award, CalendarDays } from "lucide-react";
-import { HeroCarousel, GalleryCarousel, TestimonialCarousel } from "@/components/Carousels";
+import { HeroCarousel, TestimonialCarousel } from "@/components/Carousels";
 import { SmartImage } from "@/components/SmartImage";
 import { IMAGES, SCHOOL_NAME } from "@/lib/site";
 
@@ -24,10 +24,10 @@ export const Route = createFileRoute("/")({
 });
 
 const STATS = [
-  { icon: CalendarDays, value: "60+", label: "Years of Legacy" },
-  { icon: Users, value: "2,500+", label: "Students" },
-  { icon: GraduationCap, value: "150+", label: "Faculty Members" },
-  { icon: Award, value: "100%", label: "Board Results" },
+  { icon: CalendarDays, value: "37", label: "Years of Legacy" },
+  { icon: Users, value: "1205+", label: "Students" },
+  { icon: GraduationCap, value: "60+", label: "Faculty Members" },
+  { icon: Award, value: "99%", label: "Board Results" },
 ];
 
 const TESTIMONIALS = [
@@ -106,7 +106,7 @@ function Home() {
                 />
               </div>
               <p className="mt-4 text-center font-display text-lg font-bold uppercase text-primary">
-                Honorary Correspondent
+                Honorary Correspondent [T.G.SHANKAR]
               </p>
               <p className="text-center text-xs uppercase tracking-widest text-muted-foreground">
                 P.S. Matriculation Higher Secondary School
@@ -164,7 +164,7 @@ function Home() {
                 />
               </div>
               <p className="mt-4 text-center font-display text-lg font-bold uppercase text-primary">
-                Principal [Name]
+                Principal [T.MEERA DEVI]
               </p>
               <p className="text-center text-xs uppercase tracking-widest text-muted-foreground">
                 M.A., M.Ed.
@@ -199,24 +199,6 @@ function Home() {
                 Read More
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery carousel */}
-      <section className="bg-background py-16">
-        <div className="container-page">
-          <div className="mb-8 text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-gold">Campus Life</p>
-            <h2 className="mt-2 font-display text-3xl font-bold uppercase text-primary sm:text-4xl">
-              Moments from our school
-            </h2>
-          </div>
-          <GalleryCarousel slides={IMAGES.gallery} />
-          <div className="mt-8 text-center">
-            <Link to="/life/gallery" className="link-underline font-semibold">
-              View Full Gallery
-            </Link>
           </div>
         </div>
       </section>

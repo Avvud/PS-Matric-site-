@@ -10,6 +10,81 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
+  const renderDesktopNavItems = (items: typeof NAV, depth = 0) =>
+    items.map((item) => {
+      const hasChildren = !!item.children?.length;
+
+      return (
+        <li key={item.to} className={cn("group relative", depth > 0 && "relative")}>
+          <div className="flex items-center">
+            <Link
+              to={item.to}
+              className={cn(
+                "flex items-center gap-1 px-4 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:text-gold",
+                depth > 0 && "px-3 py-2 text-xs text-black",
+              )}
+              activeProps={{ className: "text-gold" }}
+            >
+              {item.label}
+            </Link>
+            {hasChildren && <ChevronDown className={cn("h-3.5 w-3.5", depth > 0 ? "text-black" : "text-white")} />}
+            {depth === 0 && (
+              <span className="pointer-events-none absolute inset-x-3 bottom-0 h-[3px] scale-x-0 bg-gold transition-transform group-hover:scale-x-100" />
+            )}
+          </div>
+          {hasChildren && (
+            <ul
+              className={cn(
+                "invisible absolute z-50 min-w-60 rounded-b-lg border-t-2 border-gold bg-background py-2 opacity-0 shadow-card transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100",
+                depth === 0 ? "left-0 top-full" : "left-full top-0 ml-1",
+              )}
+            >
+              {renderDesktopNavItems(item.children!, depth + 1)}
+            </ul>
+          )}
+        </li>
+      );
+    });
+
+  const renderMobileNavItems = (items: typeof NAV, depth = 0) =>
+    items.map((item) => {
+      const hasChildren = !!item.children?.length;
+      const isExpanded = expanded === item.label;
+
+      if (hasChildren) {
+        return (
+          <li key={item.to} className="border-b border-cream/10">
+            <button
+              type="button"
+              onClick={() => setExpanded((e) => (e === item.label ? null : item.label))}
+              className="flex w-full items-center justify-between px-5 py-3 text-left text-sm font-semibold uppercase tracking-wider text-white"
+              style={{ paddingLeft: `${0.65 + depth * 1.15}rem` }}
+            >
+              {item.label}
+              <ChevronDown className={cn("h-4 w-4 transition-transform text-white", isExpanded && "rotate-180")} />
+            </button>
+            {isExpanded && (
+              <ul className="bg-navy pb-2">
+                {renderMobileNavItems(item.children!, depth + 1)}
+              </ul>
+            )}
+          </li>
+        );
+      }
+
+      return (
+        <li key={item.to} className="border-b border-cream/10">
+          <Link
+            to={item.to}
+            className="block px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white"
+            style={{ paddingLeft: `${0.65 + depth * 1.15}rem` }}
+          >
+            {item.label}
+          </Link>
+        </li>
+      );
+    });
+
   useEffect(() => {
     setOpen(false);
     setExpanded(null);
@@ -30,24 +105,39 @@ export function SiteHeader() {
       )}
     >
       <div className="container-page flex items-center justify-between gap-4 py-3">
-        <Link to="/" className="flex items-center gap-3">
-          <img
-            src={IMAGES.logo}
-            alt=""
-            className="h-12 w-12 rounded-full bg-cream/10 object-contain"
-            onError={(e) => {
-              e.currentTarget.style.visibility = "hidden";
-            }}
-          />
-          <span className="leading-tight">
-            <span className="block font-display text-lg font-bold uppercase tracking-wide text-cream sm:text-xl">
-              {SCHOOL_NAME}
+        <div className="flex items-center gap-4">
+          <div className="h-16 w-16 overflow-hidden rounded-full bg-cream/10 shadow-soft ring-2 ring-gold/50 sm:h-20 sm:w-20">
+            <img
+              src={IMAGES.bro}
+              alt="School bro image"
+              className="h-full w-full object-cover"
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+                e.currentTarget.parentElement!.style.background = "#f6f3eb";
+                e.currentTarget.parentElement!.innerHTML = "<span class=\'flex h-full w-full items-center justify-center text-[10px] font-bold uppercase tracking-[0.24em] text-gold\'>BRO</span>";
+              }}
+            />
+          </div>
+
+          <Link to="/" className="flex items-center gap-3">
+            <img
+              src={IMAGES.logo}
+              alt="PS Matric logo"
+              className="h-16 w-16 rounded-full bg-cream/10 object-cover shadow-soft ring-2 ring-gold/50 sm:h-20 sm:w-20"
+              onError={(e) => {
+                e.currentTarget.style.visibility = "hidden";
+              }}
+            />
+            <span className="leading-tight">
+              <span className="block font-display text-xl font-bold uppercase tracking-wide text-cream sm:text-2xl lg:text-[1.8rem]">
+                {SCHOOL_NAME}
+              </span>
+              <span className="block text-[10px] font-medium uppercase tracking-[0.22em] text-gold sm:text-xs">
+                {SCHOOL_TAGLINE}
+              </span>
             </span>
-            <span className="block text-xs font-medium uppercase tracking-[0.18em] text-gold">
-              {SCHOOL_TAGLINE}
-            </span>
-          </span>
-        </Link>
+          </Link>
+        </div>
 
         <button
           type="button"
@@ -62,34 +152,7 @@ export function SiteHeader() {
 
       <nav className="hidden border-t border-cream/10 lg:block">
         <ul className="container-page flex items-stretch justify-center gap-1">
-          {NAV.map((item) => (
-            <li key={item.label} className="group relative">
-              <Link
-                to={item.to}
-                className="flex items-center gap-1 px-4 py-3 text-sm font-semibold uppercase tracking-wider text-cream/90 transition-colors hover:text-gold"
-                activeProps={{ className: "text-gold" }}
-              >
-                {item.label}
-                {item.children && <ChevronDown className="h-3.5 w-3.5" />}
-                <span className="pointer-events-none absolute inset-x-3 bottom-0 h-[3px] scale-x-0 bg-gold transition-transform group-hover:scale-x-100" />
-              </Link>
-              {item.children && (
-                <ul className="invisible absolute left-0 top-full z-50 min-w-60 translate-y-1 rounded-b-lg border-t-2 border-gold bg-background py-2 opacity-0 shadow-card transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                  {item.children.map((c) => (
-                    <li key={c.to}>
-                      <Link
-                        to={c.to}
-                        className="block px-4 py-2 text-sm text-foreground transition-colors hover:bg-secondary hover:text-primary"
-                        activeProps={{ className: "text-primary font-semibold" }}
-                      >
-                        {c.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))}
+          {renderDesktopNavItems(NAV)}
         </ul>
       </nav>
 
@@ -102,48 +165,7 @@ export function SiteHeader() {
             </button>
           </div>
           <ul className="max-h-[70vh] overflow-y-auto border-t border-cream/10 pb-4">
-            {NAV.map((item) => (
-              <li key={item.label} className="border-b border-cream/10">
-                {item.children ? (
-                  <>
-                    <button
-                      type="button"
-                      onClick={() => setExpanded((e) => (e === item.label ? null : item.label))}
-                      className="flex w-full items-center justify-between px-5 py-3 text-sm font-semibold uppercase tracking-wider text-cream"
-                    >
-                      {item.label}
-                      <ChevronDown
-                        className={cn(
-                          "h-4 w-4 transition-transform",
-                          expanded === item.label && "rotate-180",
-                        )}
-                      />
-                    </button>
-                    {expanded === item.label && (
-                      <ul className="bg-navy pb-2">
-                        {item.children.map((c) => (
-                          <li key={c.to}>
-                            <Link
-                              to={c.to}
-                              className="block px-8 py-2 text-sm text-cream/85 hover:text-gold"
-                            >
-                              {c.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    to={item.to}
-                    className="block px-5 py-3 text-sm font-semibold uppercase tracking-wider text-cream"
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </li>
-            ))}
+            {renderMobileNavItems(NAV)}
           </ul>
         </div>
       )}

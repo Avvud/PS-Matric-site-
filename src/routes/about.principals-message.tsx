@@ -22,7 +22,7 @@ function Page() {
       <p>We believe a school must prepare children not only for examinations but for life: for teamwork, for disappointment, for leadership, and for the quiet responsibility of being a good human being. Our classrooms, laboratories, playgrounds and clubs are all designed with that larger purpose in mind.</p>
       <p>Parents remain our closest partners in this journey. I encourage you to stay involved, speak with our teachers often, and share your child's world with us.</p>
       <p>I invite you to visit our campus, meet our faculty, and see for yourself the warmth that has defined this institution for decades.</p>
-      <p><strong>Principal [Name]</strong><br />M.A., M.Ed.</p>
+      <p><strong>Principal [T.MEERA DEVI]</strong><br />M.A., M.Ed.</p>
     </ContentPage>
   );
 }

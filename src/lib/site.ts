@@ -5,7 +5,7 @@ export const SCHOOL_TAGLINE = "P.S.EDUCATIONAL SOCIETY";
 export type NavItem = {
   label: string;
   to: string;
-  children?: { label: string; to: string }[];
+  children?: NavItem[];
 };
 
 export const NAV: NavItem[] = [
@@ -15,6 +15,7 @@ export const NAV: NavItem[] = [
     to: "/about/managing-committee",
     children: [
       { label: "Managing Committee", to: "/about/managing-committee" },
+      { label: "History", to: "/about/history" },
       { label: "Facilities", to: "/about/facilities" },
     ],
   },
@@ -33,7 +34,15 @@ export const NAV: NavItem[] = [
     children: [
       { label: "Curriculum", to: "/academics/curriculum" },
       { label: "Activity Schedule", to: "/academics/activity-schedule" },
-      { label: "Examination", to: "/academics/examination" },
+      {
+        label: "Examination",
+        to: "/academics/examination",
+        children: [
+          { label: "Syllabus", to: "/academics/syllabus" },
+          { label: "Timetable", to: "/academics/timetable" },
+          { label: "Student Resource Corner", to: "/academics/student-resource-corner" },
+        ],
+      },
     ],
   },
   {
@@ -57,7 +66,7 @@ export const NAV: NavItem[] = [
 
 export const CONTACT = {
   address: "PS Matriculation Higher Secondary School, Chennai, Tamil Nadu, India",
-  phone: "+91 00000 00000",
+  phone: "044-246-42133",
   admissions: "admissions@psmatric.in",
   careers: "career_psmatric@gmail.com",
   info: "info@psmatric.in",
@@ -68,11 +77,12 @@ export const CONTACT = {
  */
 export const IMAGES = {
   logo: "/images/logo.jpeg",
+  bro: "/images/bro.jpeg",
   hero: [
     "/images/hero/hero-1.jpg",
     "/images/hero/hero-2.jpg",
     "/images/hero/hero-3.jpg",
-    "/images/hero/hero-4.jpg",
+    "/images/hero/hero-4.jpeg",
   ],
   principal: "/images/principal.jpeg",
   correspondent: "/images/correspondent.jpeg",
@@ -96,6 +106,6 @@ export const IMAGES = {
     "/images/alumni/alumni-2.jpg",
     "/images/alumni/alumni-3.jpg",
   ],
-  about: "/images/about-campus.jpg",
+  about: "/images/about-campus.jpeg",
   banner: "/images/page-banner.jpeg",
 };

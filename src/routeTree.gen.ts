@@ -26,7 +26,10 @@ import { Route as AcademicsCurriculumRouteImport } from './routes/academics.curr
 import { Route as AcademicsExaminationRouteImport } from './routes/academics.examination'
 import { Route as AcademicsMethodOfEvaluationRouteImport } from './routes/academics.method-of-evaluation'
 import { Route as AcademicsOnlineLearningRouteImport } from './routes/academics.online-learning'
+import { Route as AcademicsStudentResourceCornerRouteImport } from './routes/academics.student-resource-corner'
+import { Route as AcademicsSyllabusRouteImport } from './routes/academics.syllabus'
 import { Route as AcademicsTeachingMethodologyRouteImport } from './routes/academics.teaching-methodology'
+import { Route as AcademicsTimetableRouteImport } from './routes/academics.timetable'
 import { Route as AdmissionsFaqsRouteImport } from './routes/admissions.faqs'
 import { Route as AdmissionsFeeRouteImport } from './routes/admissions.fee'
 import { Route as AdmissionsOnlineRegistrationRouteImport } from './routes/admissions.online-registration'
@@ -134,12 +137,28 @@ const AcademicsOnlineLearningRoute = AcademicsOnlineLearningRouteImport.update({
   path: '/academics/online-learning',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AcademicsStudentResourceCornerRoute =
+  AcademicsStudentResourceCornerRouteImport.update({
+    id: '/academics/student-resource-corner',
+    path: '/academics/student-resource-corner',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AcademicsSyllabusRoute = AcademicsSyllabusRouteImport.update({
+  id: '/academics/syllabus',
+  path: '/academics/syllabus',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AcademicsTeachingMethodologyRoute =
   AcademicsTeachingMethodologyRouteImport.update({
     id: '/academics/teaching-methodology',
     path: '/academics/teaching-methodology',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AcademicsTimetableRoute = AcademicsTimetableRouteImport.update({
+  id: '/academics/timetable',
+  path: '/academics/timetable',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdmissionsFaqsRoute = AdmissionsFaqsRouteImport.update({
   id: '/admissions/faqs',
   path: '/admissions/faqs',
@@ -255,7 +274,10 @@ export interface FileRoutesByFullPath {
   '/academics/examination': typeof AcademicsExaminationRoute
   '/academics/method-of-evaluation': typeof AcademicsMethodOfEvaluationRoute
   '/academics/online-learning': typeof AcademicsOnlineLearningRoute
+  '/academics/student-resource-corner': typeof AcademicsStudentResourceCornerRoute
+  '/academics/syllabus': typeof AcademicsSyllabusRoute
   '/academics/teaching-methodology': typeof AcademicsTeachingMethodologyRoute
+  '/academics/timetable': typeof AcademicsTimetableRoute
   '/admissions/faqs': typeof AdmissionsFaqsRoute
   '/admissions/fee': typeof AdmissionsFeeRoute
   '/admissions/online-registration': typeof AdmissionsOnlineRegistrationRoute
@@ -294,7 +316,10 @@ export interface FileRoutesByTo {
   '/academics/examination': typeof AcademicsExaminationRoute
   '/academics/method-of-evaluation': typeof AcademicsMethodOfEvaluationRoute
   '/academics/online-learning': typeof AcademicsOnlineLearningRoute
+  '/academics/student-resource-corner': typeof AcademicsStudentResourceCornerRoute
+  '/academics/syllabus': typeof AcademicsSyllabusRoute
   '/academics/teaching-methodology': typeof AcademicsTeachingMethodologyRoute
+  '/academics/timetable': typeof AcademicsTimetableRoute
   '/admissions/faqs': typeof AdmissionsFaqsRoute
   '/admissions/fee': typeof AdmissionsFeeRoute
   '/admissions/online-registration': typeof AdmissionsOnlineRegistrationRoute
@@ -334,7 +359,10 @@ export interface FileRoutesById {
   '/academics/examination': typeof AcademicsExaminationRoute
   '/academics/method-of-evaluation': typeof AcademicsMethodOfEvaluationRoute
   '/academics/online-learning': typeof AcademicsOnlineLearningRoute
+  '/academics/student-resource-corner': typeof AcademicsStudentResourceCornerRoute
+  '/academics/syllabus': typeof AcademicsSyllabusRoute
   '/academics/teaching-methodology': typeof AcademicsTeachingMethodologyRoute
+  '/academics/timetable': typeof AcademicsTimetableRoute
   '/admissions/faqs': typeof AdmissionsFaqsRoute
   '/admissions/fee': typeof AdmissionsFeeRoute
   '/admissions/online-registration': typeof AdmissionsOnlineRegistrationRoute
@@ -375,7 +403,10 @@ export interface FileRouteTypes {
     | '/academics/examination'
     | '/academics/method-of-evaluation'
     | '/academics/online-learning'
+    | '/academics/student-resource-corner'
+    | '/academics/syllabus'
     | '/academics/teaching-methodology'
+    | '/academics/timetable'
     | '/admissions/faqs'
     | '/admissions/fee'
     | '/admissions/online-registration'
@@ -414,7 +445,10 @@ export interface FileRouteTypes {
     | '/academics/examination'
     | '/academics/method-of-evaluation'
     | '/academics/online-learning'
+    | '/academics/student-resource-corner'
+    | '/academics/syllabus'
     | '/academics/teaching-methodology'
+    | '/academics/timetable'
     | '/admissions/faqs'
     | '/admissions/fee'
     | '/admissions/online-registration'
@@ -453,7 +487,10 @@ export interface FileRouteTypes {
     | '/academics/examination'
     | '/academics/method-of-evaluation'
     | '/academics/online-learning'
+    | '/academics/student-resource-corner'
+    | '/academics/syllabus'
     | '/academics/teaching-methodology'
+    | '/academics/timetable'
     | '/admissions/faqs'
     | '/admissions/fee'
     | '/admissions/online-registration'
@@ -493,7 +530,10 @@ export interface RootRouteChildren {
   AcademicsExaminationRoute: typeof AcademicsExaminationRoute
   AcademicsMethodOfEvaluationRoute: typeof AcademicsMethodOfEvaluationRoute
   AcademicsOnlineLearningRoute: typeof AcademicsOnlineLearningRoute
+  AcademicsStudentResourceCornerRoute: typeof AcademicsStudentResourceCornerRoute
+  AcademicsSyllabusRoute: typeof AcademicsSyllabusRoute
   AcademicsTeachingMethodologyRoute: typeof AcademicsTeachingMethodologyRoute
+  AcademicsTimetableRoute: typeof AcademicsTimetableRoute
   AdmissionsFaqsRoute: typeof AdmissionsFaqsRoute
   AdmissionsFeeRoute: typeof AdmissionsFeeRoute
   AdmissionsOnlineRegistrationRoute: typeof AdmissionsOnlineRegistrationRoute
@@ -636,11 +676,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AcademicsOnlineLearningRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/academics/student-resource-corner': {
+      id: '/academics/student-resource-corner'
+      path: '/academics/student-resource-corner'
+      fullPath: '/academics/student-resource-corner'
+      preLoaderRoute: typeof AcademicsStudentResourceCornerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academics/syllabus': {
+      id: '/academics/syllabus'
+      path: '/academics/syllabus'
+      fullPath: '/academics/syllabus'
+      preLoaderRoute: typeof AcademicsSyllabusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/academics/teaching-methodology': {
       id: '/academics/teaching-methodology'
       path: '/academics/teaching-methodology'
       fullPath: '/academics/teaching-methodology'
       preLoaderRoute: typeof AcademicsTeachingMethodologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academics/timetable': {
+      id: '/academics/timetable'
+      path: '/academics/timetable'
+      fullPath: '/academics/timetable'
+      preLoaderRoute: typeof AcademicsTimetableRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admissions/faqs': {
@@ -797,7 +858,10 @@ const rootRouteChildren: RootRouteChildren = {
   AcademicsExaminationRoute: AcademicsExaminationRoute,
   AcademicsMethodOfEvaluationRoute: AcademicsMethodOfEvaluationRoute,
   AcademicsOnlineLearningRoute: AcademicsOnlineLearningRoute,
+  AcademicsStudentResourceCornerRoute: AcademicsStudentResourceCornerRoute,
+  AcademicsSyllabusRoute: AcademicsSyllabusRoute,
   AcademicsTeachingMethodologyRoute: AcademicsTeachingMethodologyRoute,
+  AcademicsTimetableRoute: AcademicsTimetableRoute,
   AdmissionsFaqsRoute: AdmissionsFaqsRoute,
   AdmissionsFeeRoute: AdmissionsFeeRoute,
   AdmissionsOnlineRegistrationRoute: AdmissionsOnlineRegistrationRoute,
