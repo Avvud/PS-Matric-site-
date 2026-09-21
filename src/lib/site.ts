@@ -65,7 +65,7 @@ export const NAV: NavItem[] = [
 ];
 
 export const CONTACT = {
-  address: "PS Matriculation Higher Secondary School, Chennai, Tamil Nadu, India",
+  address: "# PS Matriculation School",
   phone: "044-246-42133",
   admissions: "admissions@psmatric.in",
   careers: "career_psmatric@gmail.com",
@@ -79,17 +79,17 @@ export const IMAGES = {
   logo: "/images/logo.jpeg",
   bro: "/images/bro.jpeg",
   hero: [
-    "/images/hero/hero-1.jpg",
-    "/images/hero/hero-2.jpg",
+    "/images/hero/hero-1.png",
+    "/images/hero/hero-2.png",
     "/images/hero/hero-3.jpg",
     "/images/hero/hero-4.jpeg",
   ],
   principal: "/images/principal.jpeg",
   correspondent: "/images/correspondent.jpeg",
   uniform: {
-    lkgUkg: "/images/uniform/lkg-ukg.jpeg",
-    primary: "/images/uniform/primary.jpeg",
-    secondary: "/images/uniform/secondary.jpeg",
+    lkgUkg: "/images/uniform/kg unifrom.png",
+    primary: "/images/uniform/primary uniform.png",
+    secondary: "/images/uniform/Secondary.jpeg",
   },
   gallery: [
     { src: "/images/gallery/gallery-1.png", caption: "Annual Day" },

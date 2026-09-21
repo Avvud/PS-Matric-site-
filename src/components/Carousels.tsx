@@ -72,12 +72,8 @@ function Dots({
 
 export function HeroCarousel({
   images,
-  tagline,
-  subline,
 }: {
   images: string[];
-  tagline: string;
-  subline: string;
 }) {
   const [paused, setPaused] = useState(false);
   const { index, setIndex, next, prev } = useAutoplay(images.length, 5000, paused);
@@ -99,19 +95,6 @@ export function HeroCarousel({
           <SmartImage src={src} alt="Campus" className="h-full w-full" />
         </div>
       ))}
-
-      <div className="container-page relative z-10 flex h-full flex-col items-start justify-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gold">{subline}</p>
-        <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold uppercase leading-tight text-cream sm:text-6xl">
-          {tagline}
-        </h1>
-        <a
-          href="/about/vision-mission"
-          className="mt-8 inline-flex rounded-md bg-gold px-7 py-3 text-sm font-bold uppercase tracking-widest text-navy-deep transition hover:bg-gold-soft"
-        >
-          Know More
-        </a>
-      </div>
 
       <Arrows onPrev={prev} onNext={next} />
       <Dots count={images.length} index={index} onSelect={setIndex} />

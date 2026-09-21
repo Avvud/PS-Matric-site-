@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  const [expanded, setExpanded] = useState<string | null>(null);
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [scrolled, setScrolled] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
@@ -15,27 +15,40 @@ export function SiteHeader() {
       const hasChildren = !!item.children?.length;
 
       return (
-        <li key={item.to} className={cn("group relative", depth > 0 && "relative")}>
-          <div className="flex items-center">
+        <li
+          key={item.to}
+          className={cn("relative", depth === 0 ? "group/nav-root" : "group/nav-subitem")}
+        >
+          <div className="flex w-full items-center">
             <Link
               to={item.to}
               className={cn(
                 "flex items-center gap-1 px-4 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:text-gold",
-                depth > 0 && "px-3 py-2 text-xs text-black",
+                depth > 0 && "flex-1 px-3 py-2 text-xs text-black",
               )}
               activeProps={{ className: "text-gold" }}
             >
               {item.label}
             </Link>
-            {hasChildren && <ChevronDown className={cn("h-3.5 w-3.5", depth > 0 ? "text-black" : "text-white")} />}
+            {hasChildren && (
+              <ChevronDown
+                className={cn(
+                  "h-3.5 w-3.5",
+                  depth > 0 ? "mr-3 text-black" : "text-white",
+                )}
+              />
+            )}
             {depth === 0 && (
-              <span className="pointer-events-none absolute inset-x-3 bottom-0 h-[3px] scale-x-0 bg-gold transition-transform group-hover:scale-x-100" />
+              <span className="pointer-events-none absolute inset-x-3 bottom-0 h-[3px] scale-x-0 bg-gold transition-transform group-hover/nav-root:scale-x-100" />
             )}
           </div>
           {hasChildren && (
             <ul
               className={cn(
-                "invisible absolute z-50 min-w-60 rounded-b-lg border-t-2 border-gold bg-background py-2 opacity-0 shadow-card transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100",
+                "invisible absolute z-50 min-w-60 rounded-b-lg border-t-2 border-gold bg-background py-2 opacity-0 shadow-card transition-all",
+                depth === 0
+                  ? "group-hover/nav-root:visible group-hover/nav-root:translate-y-0 group-hover/nav-root:opacity-100"
+                  : "group-hover/nav-subitem:visible group-hover/nav-subitem:translate-y-0 group-hover/nav-subitem:opacity-100",
                 depth === 0 ? "left-0 top-full" : "left-full top-0 ml-1",
               )}
             >
@@ -46,17 +59,28 @@ export function SiteHeader() {
       );
     });
 
-  const renderMobileNavItems = (items: typeof NAV, depth = 0) =>
+  const renderMobileNavItems = (items: typeof NAV, depth = 0, parentPath = "") =>
     items.map((item) => {
       const hasChildren = !!item.children?.length;
-      const isExpanded = expanded === item.label;
+      const itemPath = `${parentPath}/${item.to}`;
+      const isExpanded = expanded.has(itemPath);
 
       if (hasChildren) {
         return (
           <li key={item.to} className="border-b border-cream/10">
             <button
               type="button"
-              onClick={() => setExpanded((e) => (e === item.label ? null : item.label))}
+              onClick={() =>
+                setExpanded((current) => {
+                  const next = new Set(current);
+                  if (next.has(itemPath)) {
+                    next.delete(itemPath);
+                  } else {
+                    next.add(itemPath);
+                  }
+                  return next;
+                })
+              }
               className="flex w-full items-center justify-between px-5 py-3 text-left text-sm font-semibold uppercase tracking-wider text-white"
               style={{ paddingLeft: `${0.65 + depth * 1.15}rem` }}
             >
@@ -65,7 +89,7 @@ export function SiteHeader() {
             </button>
             {isExpanded && (
               <ul className="bg-navy pb-2">
-                {renderMobileNavItems(item.children!, depth + 1)}
+                {renderMobileNavItems(item.children!, depth + 1, itemPath)}
               </ul>
             )}
           </li>
@@ -87,7 +111,7 @@ export function SiteHeader() {
 
   useEffect(() => {
     setOpen(false);
-    setExpanded(null);
+    setExpanded(new Set());
   }, [pathname]);
 
   useEffect(() => {

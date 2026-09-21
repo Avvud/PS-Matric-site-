@@ -11,10 +11,25 @@ export const Route = createFileRoute("/admissions/uniform")({
 function Page() {
   return (
     <ContentPage title="School Uniform Details" subtitle="Uniform guidelines">
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <SmartImage src={IMAGES.uniform.lkgUkg} alt="LKG and UKG uniform placeholder" className="aspect-[4/3]" />
-        <SmartImage src={IMAGES.uniform.primary} alt="Standards I to VII uniform placeholder" className="aspect-[4/3]" />
-        <SmartImage src={IMAGES.uniform.secondary} alt="Standards VIII to XII uniform placeholder" className="aspect-[4/3]" />
+      <div className="grid items-start justify-items-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <SmartImage
+          src={IMAGES.uniform.lkgUkg}
+          alt="LKG and UKG uniform placeholder"
+          className="w-full self-start bg-transparent"
+          imgClassName="h-auto object-contain"
+        />
+        <SmartImage
+          src={IMAGES.uniform.primary}
+          alt="Standards I to VII uniform placeholder"
+          className="w-full self-start bg-transparent"
+          imgClassName="h-auto object-contain"
+        />
+        <SmartImage
+          src={IMAGES.uniform.secondary}
+          alt="Standards VIII to XII uniform placeholder"
+          className="w-full self-start bg-transparent"
+          imgClassName="h-auto object-contain"
+        />
       </div>
       <h2>Contact</h2>
       <p>Parthy&apos;s Tex Tailors, No. 6, South Canal Road, Chennai - 600028.</p>

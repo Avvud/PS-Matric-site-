@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { CONTACT, SCHOOL_NAME, SCHOOL_TAGLINE } from "@/lib/site";
 
@@ -27,32 +26,6 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h4 className="text-sm font-bold uppercase tracking-widest text-gold">Quick Links</h4>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li>
-              <Link to="/" className="hover:text-gold">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/about/history" className="hover:text-gold">
-                History
-              </Link>
-            </li>
-            <li>
-              <Link to="/mandatory-disclosure" className="hover:text-gold">
-                Mandatory Disclosure
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="hover:text-gold">
-                Contact Us
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div>
           <h4 className="text-sm font-bold uppercase tracking-widest text-gold">Reach Us</h4>
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex gap-2">
@@ -74,6 +47,19 @@ export function SiteFooter() {
               </span>
             </li>
           </ul>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-bold uppercase tracking-widest text-gold">Location</h4>
+          <div className="mt-4 overflow-hidden rounded-lg border border-cream/20">
+            <iframe
+              title="School location map"
+              src="https://www.google.com/maps?q=13.031633064717822,80.26810102109985&output=embed"
+              className="h-56 w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
       </div>
 

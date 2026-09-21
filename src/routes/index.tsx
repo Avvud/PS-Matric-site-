@@ -59,8 +59,6 @@ function Home() {
     <>
       <HeroCarousel
         images={IMAGES.hero}
-        subline="P.S.EDUCATIONAL SOCIETY"
-        tagline="Welcome to a new culture of education"
       />
 
       {/* Welcome / About blurb */}
