@@ -49,6 +49,7 @@ import { Route as LifeAchievementsRouteImport } from './routes/life.achievements
 import { Route as LifeGalleryRouteImport } from './routes/life.gallery'
 import { Route as LifeInfrastructureRouteImport } from './routes/life.infrastructure'
 import { Route as LifeStudentClubsRouteImport } from './routes/life.student-clubs'
+import { Route as EventsEventSlugYearRouteImport } from './routes/events.$eventSlug.$year'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -255,6 +256,11 @@ const LifeStudentClubsRoute = LifeStudentClubsRouteImport.update({
   path: '/life/student-clubs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EventsEventSlugYearRoute = EventsEventSlugYearRouteImport.update({
+  id: '/events/$eventSlug/$year',
+  path: '/events/$eventSlug/$year',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -297,6 +303,7 @@ export interface FileRoutesByFullPath {
   '/life/gallery': typeof LifeGalleryRoute
   '/life/infrastructure': typeof LifeInfrastructureRoute
   '/life/student-clubs': typeof LifeStudentClubsRoute
+  '/events/$eventSlug/$year': typeof EventsEventSlugYearRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -339,6 +346,7 @@ export interface FileRoutesByTo {
   '/life/gallery': typeof LifeGalleryRoute
   '/life/infrastructure': typeof LifeInfrastructureRoute
   '/life/student-clubs': typeof LifeStudentClubsRoute
+  '/events/$eventSlug/$year': typeof EventsEventSlugYearRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -382,6 +390,7 @@ export interface FileRoutesById {
   '/life/gallery': typeof LifeGalleryRoute
   '/life/infrastructure': typeof LifeInfrastructureRoute
   '/life/student-clubs': typeof LifeStudentClubsRoute
+  '/events/$eventSlug/$year': typeof EventsEventSlugYearRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -426,6 +435,7 @@ export interface FileRouteTypes {
     | '/life/gallery'
     | '/life/infrastructure'
     | '/life/student-clubs'
+    | '/events/$eventSlug/$year'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -468,6 +478,7 @@ export interface FileRouteTypes {
     | '/life/gallery'
     | '/life/infrastructure'
     | '/life/student-clubs'
+    | '/events/$eventSlug/$year'
   id:
     | '__root__'
     | '/'
@@ -510,6 +521,7 @@ export interface FileRouteTypes {
     | '/life/gallery'
     | '/life/infrastructure'
     | '/life/student-clubs'
+    | '/events/$eventSlug/$year'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -553,6 +565,7 @@ export interface RootRouteChildren {
   LifeGalleryRoute: typeof LifeGalleryRoute
   LifeInfrastructureRoute: typeof LifeInfrastructureRoute
   LifeStudentClubsRoute: typeof LifeStudentClubsRoute
+  EventsEventSlugYearRoute: typeof EventsEventSlugYearRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -837,6 +850,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LifeStudentClubsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/events/$eventSlug/$year': {
+      id: '/events/$eventSlug/$year'
+      path: '/events/$eventSlug/$year'
+      fullPath: '/events/$eventSlug/$year'
+      preLoaderRoute: typeof EventsEventSlugYearRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -881,6 +901,7 @@ const rootRouteChildren: RootRouteChildren = {
   LifeGalleryRoute: LifeGalleryRoute,
   LifeInfrastructureRoute: LifeInfrastructureRoute,
   LifeStudentClubsRoute: LifeStudentClubsRoute,
+  EventsEventSlugYearRoute: EventsEventSlugYearRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -25,7 +25,7 @@ export const NAV: NavItem[] = [
     children: [
       { label: "School Uniform Details", to: "/admissions/uniform" },
       { label: "School Fee", to: "/admissions/fee" },
-      { label: "Student & Parent Portal", to: "/admissions/portal" },
+      { label: "General Instructions", to: "/admissions/portal" },
     ],
   },
   {
@@ -63,6 +63,57 @@ export const NAV: NavItem[] = [
   },
   { label: "Contact", to: "/contact" },
 ];
+
+export const EVENT_GALLERY_YEARS = ["2025-26", "2024-25", "2023-24", "2022-23"] as const;
+type EventGalleryYearName = (typeof EVENT_GALLERY_YEARS)[number];
+
+type EventGalleryYear = {
+  folderUrl: string;
+  photos: string[];
+};
+
+function createEventGallery(
+  slug: string,
+  photos: Partial<Record<EventGalleryYearName, string[]>> = {},
+): Record<EventGalleryYearName, EventGalleryYear> {
+  return {
+    "2025-26": {
+      folderUrl: `/images/events/${slug}/2025-26/`,
+      photos: photos["2025-26"] ?? [],
+    },
+    "2024-25": {
+      folderUrl: `/images/events/${slug}/2024-25/`,
+      photos: photos["2024-25"] ?? [],
+    },
+    "2023-24": {
+      folderUrl: `/images/events/${slug}/2023-24/`,
+      photos: photos["2023-24"] ?? [],
+    },
+    "2022-23": {
+      folderUrl: `/images/events/${slug}/2022-23/`,
+      photos: photos["2022-23"] ?? [],
+    },
+  };
+}
+
+export const EVENT_GALLERIES = {
+  "akshara-abhyas": { title: "Akshara Abhyas", years: createEventGallery("akshara-abhyas") },
+  "vidhya-pravesh": { title: "Vidhya Pravesh", years: createEventGallery("vidhya-pravesh") },
+  "sports-day": { title: "Sports Day", years: createEventGallery("sports-day") },
+  "annual-day": { title: "Annual Day", years: createEventGallery("annual-day") },
+  "independence-day": { title: "Independence Day", years: createEventGallery("independence-day") },
+  "project-day": { title: "Project Day", years: createEventGallery("project-day") },
+  "fancy-dress": { title: "Fancy Dress", years: createEventGallery("fancy-dress") },
+  "republic-day": { title: "Republic Day", years: createEventGallery("republic-day") },
+  "primary-sports-day": {
+    title: "Primary Sports Day",
+    years: createEventGallery("primary-sports-day"),
+  },
+  "primary-annual-day": {
+    title: "Primary Annual Day",
+    years: createEventGallery("primary-annual-day"),
+  },
+};
 
 export const CONTACT = {
   address: "# PS Matriculation School",

@@ -2,13 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ContentPage } from "@/components/PageShell";
 
 export const Route = createFileRoute("/admissions/portal")({
-  head: () => ({ meta: [{ title: "Student & Parent Portal | PS Matric" }, { name: "description", content: "Student and Parent Portal — PS Matriculation Higher Secondary School." }] }),
+  head: () => ({ meta: [{ title: "General Instructions | PS Matric" }, { name: "description", content: "General instructions for students and parents of PS Matriculation Higher Secondary School." }] }),
   component: Page,
 });
 
 function Page() {
   return (
-    <ContentPage title="Student & Parent Portal" subtitle="School information for students and parents">
+    <ContentPage title="General Instructions" subtitle="School information for students and parents">
       <h2>Examinations</h2>
       <p>Academic performance of students from Standards I to VII will be assessed through Continuous Comprehensive Evaluation (C.C.E.).</p>
       <ul>
@@ -38,6 +38,26 @@ function Page() {
         <li>Standards VI to XII: 8:45 a.m. to 4:00 p.m.</li>
         <li>Lunch break: 12:35 p.m. to 1:05 p.m.</li>
         <li>Morning assembly: 8:45 a.m. to 9:00 a.m.</li>
+      </ul>
+      <h2>Duration of Periods</h2>
+      <ul>
+        <li>First bell: 8:45 a.m.</li>
+        <li>Assembly: 8:45 a.m. to 9:00 a.m.</li>
+        <li>I Period: 9:00 a.m. to 9:40 a.m.</li>
+        <li>II Period: 9:40 a.m. to 10:20 a.m.</li>
+        <li>III Period: 10:20 a.m. to 11:00 a.m.</li>
+        <li>Local break: 11:00 a.m. to 11:15 a.m.</li>
+        <li>IV Period: 11:15 a.m. to 11:55 a.m.</li>
+        <li>V Period: 11:55 a.m. to 12:35 p.m.</li>
+        <li>VI Period: 1:05 p.m. to 1:45 p.m.</li>
+        <li>VII Period: 1:45 p.m. to 2:25 p.m. (Standards I and II dispersal)</li>
+        <li>Local break: 2:25 p.m. to 2:40 p.m.</li>
+        <li>VIII Period: 2:40 p.m. to 3:20 p.m. (Standards III to V dispersal)</li>
+        <li>IX Period: 3:20 p.m. to 4:00 p.m. (Standards VI to XII dispersal)</li>
+        <li>
+          Fine Arts and special classes: 2:40 p.m. to 3:20 p.m. for Primary, and 3:20 p.m. to
+          4:00 p.m. for Standards VI to VIII.
+        </li>
       </ul>
       <h2>School Terms</h2>
       <ul>
