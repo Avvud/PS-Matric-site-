@@ -165,7 +165,7 @@ function Home() {
                 Principal [T.MEERA DEVI]
               </p>
               <p className="text-center text-xs uppercase tracking-widest text-muted-foreground">
-                M.A., M.Ed.
+                M.Com., M.Ed.
               </p>
             </div>
             <div>

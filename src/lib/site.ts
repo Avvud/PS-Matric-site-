@@ -34,15 +34,7 @@ export const NAV: NavItem[] = [
     children: [
       { label: "Curriculum", to: "/academics/curriculum" },
       { label: "Activity Schedule", to: "/academics/activity-schedule" },
-      {
-        label: "Examination",
-        to: "/academics/examination",
-        children: [
-          { label: "Syllabus", to: "/academics/syllabus" },
-          { label: "Timetable", to: "/academics/timetable" },
-          { label: "Student Resource Corner", to: "/academics/student-resource-corner" },
-        ],
-      },
+      { label: "Examination", to: "/academics/examination" },
     ],
   },
   {
@@ -64,7 +56,7 @@ export const NAV: NavItem[] = [
   { label: "Contact", to: "/contact" },
 ];
 
-export const EVENT_GALLERY_YEARS = ["2025-26", "2024-25", "2023-24", "2022-23"] as const;
+export const EVENT_GALLERY_YEARS = ["2025-26", "2026-27"] as const;
 type EventGalleryYearName = (typeof EVENT_GALLERY_YEARS)[number];
 
 type EventGalleryYear = {
@@ -81,17 +73,9 @@ function createEventGallery(
       folderUrl: `/images/events/${slug}/2025-26/`,
       photos: photos["2025-26"] ?? [],
     },
-    "2024-25": {
-      folderUrl: `/images/events/${slug}/2024-25/`,
-      photos: photos["2024-25"] ?? [],
-    },
-    "2023-24": {
-      folderUrl: `/images/events/${slug}/2023-24/`,
-      photos: photos["2023-24"] ?? [],
-    },
-    "2022-23": {
-      folderUrl: `/images/events/${slug}/2022-23/`,
-      photos: photos["2022-23"] ?? [],
+    "2026-27": {
+      folderUrl: `/images/events/${slug}/2026-27/`,
+      photos: photos["2026-27"] ?? [],
     },
   };
 }

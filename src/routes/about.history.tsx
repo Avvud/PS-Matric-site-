@@ -18,11 +18,20 @@ function Page() {
   return (
     <ContentPage title="History">
       <p>
-        P S Senior Secondary School was established in June 1976 with a vision of providing quality
-        education to students at a highly competitive cost. The school opened its doors with 265
-        students and today stands proud with a strength of 2751 students. Needless to say, the
-        institution&apos;s dynamic educational environment has evolved and enlightened several generations
-        of learners.
+        <em>P.S. Matriculation Higher Secondary School</em> was established in June 1988 with the
+        vision of providing quality education to students at a highly competitive cost. The school
+        began its journey with <em>60 students</em> and has today grown into a thriving institution with
+        a strength of <em>1,205 students</em>. Over the years, the school’s dynamic and enriching
+        educational environment has nurtured, empowered, and enlightened several generations of
+        learners. The institution is a unit of the <em>P.S. Educational Society, the educational wing of
+        P.S. Charities</em>, founded in 1905 with a steadfast commitment to promoting education along with
+        character building and holistic development. The school was granted affiliation by the
+        <em>Matriculation Board in 1990</em>, marking an important milestone in its journey towards
+        providing structured and quality education. Since its inception, the institution has remained
+        committed to academic excellence, discipline, values, and the overall development of every
+        student. With a strong legacy spanning several decades, <em>P.S. Matriculation Higher Secondary
+        School</em> continues to strive towards creating responsible, confident, and well-rounded
+        individuals who are equipped to meet the challenges of a rapidly changing world.
       </p>
       <p>
         The institution is a unit of P.S. Educational Society, the educational wing of P. S. Charities,

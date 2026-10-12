@@ -20,13 +20,12 @@ function Page() {
     <ContentPage title="Principal’s Message" subtitle="The Architect of Tomorrow">
       <div className="grid items-start gap-10 md:grid-cols-[minmax(0,1fr)_280px]">
         <div className="space-y-5">
-          <p>Dear Parents and Students,</p>
-          <p>It gives me great pleasure to welcome you to our school. Education, to us, is far more than the pursuit of marks. It is the patient work of shaping curious minds, kind hearts and resilient character.</p>
-          <p>Every child who walks through our gates carries a distinct spark. Our teachers take it upon themselves to discover that spark and nurture it — through questions encouraged, effort celebrated and failure treated as an honest teacher.</p>
-          <p>We believe a school must prepare children not only for examinations but for life: for teamwork, for disappointment, for leadership, and for the quiet responsibility of being a good human being. Our classrooms, laboratories, playgrounds and clubs are all designed with that larger purpose in mind.</p>
-          <p>Parents remain our closest partners in this journey. I encourage you to stay involved, speak with our teachers often, and share your child&apos;s world with us.</p>
-          <p>I invite you to visit our campus, meet our faculty, and see for yourself the warmth that has defined this institution for decades.</p>
-          <p><strong>Principal [T.MEERA DEVI]</strong><br />M.A., M.Ed.</p>
+          <p>It gives me immense pleasure to welcome you to our school. We believe education goes beyond marks and academic excellence. Our aim is to nurture curious minds, compassionate hearts, confident individuals and strong character.</p>
+          <p>Every child is unique with immense potential. Our dedicated teachers strive to nurture their talents, encourage creativity and help them learn from challenges. We prepare students not only for examinations but also for life, instilling teamwork, courage, responsibility, leadership and compassion.</p>
+          <p>Our classrooms, laboratories, libraries, playgrounds and co-curricular activities support the holistic development of every child.</p>
+          <p>Parents are our valued partners in this journey. Your involvement and encouragement play a vital role in your child&apos;s growth.</p>
+          <p>I warmly invite you to visit our campus, interact with our faculty and experience the values and commitment that define our institution. Together we shall inspire every child to learn with curiosity, grow with confidence, lead with integrity and live with purpose.</p>
+          <p>With warm regards,<br /><strong>T. MEERA DEVI</strong><br />M.Com., M.Ed.</p>
         </div>
         <figure className="flex w-full flex-col items-center justify-self-center md:mt-[125px]">
           <SmartImage
@@ -38,7 +37,7 @@ function Page() {
           <figcaption className="mt-3 text-center text-sm text-foreground/80">
             Principal [T. Meera Devi]
             <br />
-            M.A., M.Ed.
+            M.Com., M.Ed.
           </figcaption>
         </figure>
       </div>
