@@ -22,7 +22,7 @@ export function PageBanner({
       {showImage && (
         <>
           <SmartImage src={IMAGES.banner} alt="" className="absolute inset-0 h-full w-full" />
-          <div className="absolute inset-0 bg-navy-deep/70" />
+          <div className="absolute inset-0 bg-black/40" />
         </>
       )}
       <div

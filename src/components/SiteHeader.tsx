@@ -132,7 +132,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-4">
           <div className="h-16 w-16 overflow-hidden rounded-full bg-cream/10 shadow-soft ring-2 ring-gold/50 sm:h-20 sm:w-20">
             <img
-              src={IMAGES.bro}
+              src={IMAGES.founderlogo}
               alt="School bro image"
               className="h-full w-full object-cover"
               onError={(e) => {

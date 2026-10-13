@@ -18,26 +18,26 @@ function Page() {
   return (
     <ContentPage title="History">
       <p>
-        <em>P.S. Matriculation Higher Secondary School</em> was established in June 1988 with the
+        <strong>P.S. Matriculation Higher Secondary School</strong> was established in June 1988 with the
         vision of providing quality education to students at a highly competitive cost. The school
         began its journey with <em>60 students</em> and has today grown into a thriving institution with
         a strength of <em>1,205 students</em>. Over the years, the school’s dynamic and enriching
         educational environment has nurtured, empowered, and enlightened several generations of
-        learners. The institution is a unit of the <em>P.S. Educational Society, the educational wing of
-        P.S. Charities</em>, founded in 1905 with a steadfast commitment to promoting education along with
-        character building and holistic development. The school was granted affiliation by the
-        <em>Matriculation Board in 1990</em>, marking an important milestone in its journey towards
+        learners.
+      </p>
+      <p>
+        The institution is a unit of the <strong>P.S. Educational Society, the educational wing of
+        P.S. Charities</strong>, founded in 1905 with a steadfast commitment to promoting education along with
+        character building and holistic development.</p>
+        <p> The school was granted affiliation by the <strong>Matriculation Board in 1990</strong>, marking an important milestone in its journey towards
         providing structured and quality education. Since its inception, the institution has remained
         committed to academic excellence, discipline, values, and the overall development of every
-        student. With a strong legacy spanning several decades, <em>P.S. Matriculation Higher Secondary
+        student.</p>
+        <p> With a strong legacy spanning several decades, <em>P.S. Matriculation Higher Secondary
         School</em> continues to strive towards creating responsible, confident, and well-rounded
         individuals who are equipped to meet the challenges of a rapidly changing world.
       </p>
-      <p>
-        The institution is a unit of P.S. Educational Society, the educational wing of P. S. Charities,
-        founded in 1905, which has upheld the cause of Education with character building. The school
-        was granted permanent affiliation by the CBSE on April 1, 1987.
-      </p>
+      
       <h2 className="pt-4 normal-case">Founder:</h2>
       <div className="grid gap-8 md:grid-cols-[1fr_250px] md:items-start">
         <p>
