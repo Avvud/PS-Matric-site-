@@ -54,7 +54,7 @@ export function SiteFooter() {
           <div className="mt-4 overflow-hidden rounded-lg border border-cream/20">
             <iframe
               title="School location map"
-              src="https://www.google.com/maps?q=P+S+HIGHER+SECONDARY+SCHOOL-SANKARAPURAM,+No.214,+Ramakrishna+Mutt+Rd,+Alamelu+Manga+Puram,+Sankarapuram,+Mylapore,+Chennai,+Tamil+Nadu+600004,+India&output=embed"
+              src="https://www.google.com/maps?q=P.S.+Matriculation+Higher+Secondary+School,+No.214,+R.K.+Mutt+Road,+Mylapore,+Chennai+-+600004&output=embed"
               className="h-56 w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

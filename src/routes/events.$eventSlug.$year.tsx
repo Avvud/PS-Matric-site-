@@ -2,13 +2,17 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ImageIcon } from "lucide-react";
 import { PageBanner } from "@/components/PageShell";
 import { SmartImage } from "@/components/SmartImage";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { EVENT_GALLERIES } from "@/lib/site";
 
 export const Route = createFileRoute("/events/$eventSlug/$year")({
   head: () => ({
     meta: [
       { title: "Event Gallery | PS Matric" },
-      { name: "description", content: "Event photographs from PS Matriculation Higher Secondary School." },
+      {
+        name: "description",
+        content: "Event photographs from PS Matriculation Higher Secondary School.",
+      },
     ],
   }),
   component: EventYearGallery,
@@ -22,10 +26,16 @@ function EventYearGallery() {
   if (!event || !gallery) {
     return (
       <>
-        <PageBanner title="Gallery not found" subtitle="The requested event or school year is unavailable." />
+        <PageBanner
+          title="Gallery not found"
+          subtitle="The requested event or school year is unavailable."
+        />
         <section className="bg-background py-14">
           <div className="container-page">
-            <Link to="/" className="inline-flex items-center gap-2 font-semibold text-primary underline">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 font-semibold text-primary underline"
+            >
               <ArrowLeft className="h-4 w-4" aria-hidden />
               Return to home
             </Link>
@@ -51,7 +61,29 @@ function EventYearGallery() {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {gallery.photos.map((photo) => (
                 <figure key={photo} className="overflow-hidden rounded-xl shadow-soft">
-                  <SmartImage src={photo} alt={`${event.title} ${year}`} className="aspect-[4/3]" />
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <button
+                        type="button"
+                        aria-label={`Expand ${event.title} photo`}
+                        className="block w-full cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                      >
+                        <SmartImage
+                          src={photo}
+                          alt={`${event.title} ${year}`}
+                          className="aspect-[4/3]"
+                        />
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-5xl border-0 bg-transparent p-2 shadow-none">
+                      <DialogTitle className="sr-only">{`${event.title} ${year} photo`}</DialogTitle>
+                      <img
+                        src={photo}
+                        alt={`${event.title} ${year}`}
+                        className="mx-auto max-h-[85vh] w-auto max-w-full rounded object-contain"
+                      />
+                    </DialogContent>
+                  </Dialog>
                 </figure>
               ))}
             </div>
@@ -62,9 +94,10 @@ function EventYearGallery() {
                 Photos for this year will be added soon.
               </p>
               <p className="mt-2 font-serif text-sm text-muted-foreground">
-                Add images to <code className="rounded bg-muted px-2 py-1">{gallery.folderUrl}</code>{" "}
-                and list their paths in <code className="rounded bg-muted px-2 py-1">photos</code>{" "}
-                in <code className="rounded bg-muted px-2 py-1">src/lib/site.ts</code>.
+                Add images to{" "}
+                <code className="rounded bg-muted px-2 py-1">{gallery.folderUrl}</code> and list
+                their paths in <code className="rounded bg-muted px-2 py-1">photos</code> in{" "}
+                <code className="rounded bg-muted px-2 py-1">src/lib/site.ts</code>.
               </p>
             </div>
           )}

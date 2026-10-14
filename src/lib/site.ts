@@ -288,8 +288,7 @@ export const EVENT_GALLERIES = {
 };
 
 export const CONTACT = {
-  address:
-    "P S HIGHER SECONDARY SCHOOL-SANKARAPURAM, No.214, Ramakrishna Mutt Rd, Alamelu Manga Puram, Sankarapuram, Mylapore, Chennai, Tamil Nadu 600004, India",
+  address: "P.S. Matriculation Higher Secondary School, No.214, R.K. Mutt Road, Mylapore, Chennai - 600004",
   phone: "044-246-42133",
   admissions: "admissions@psmatric.in",
   careers: "career_psmatric@gmail.com",
