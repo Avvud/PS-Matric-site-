@@ -7,6 +7,21 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  nitro: { preset: "vercel" },
+  vite: {
+    environments: {
+      ssr: {
+        build: {
+          rollupOptions: { input: "src/server.ts" },
+          rolldownOptions: {
+            input: "src/server.ts",
+            // Keep SSR in one bundle to avoid a circular export-helper chunk at runtime.
+            output: { codeSplitting: false },
+          },
+        },
+      },
+    },
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
