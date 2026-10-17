@@ -27,7 +27,7 @@ function Arrows({ onPrev, onNext }: { onPrev: () => void; onNext: () => void }) 
         type="button"
         aria-label="Previous slide"
         onClick={onPrev}
-        className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/85 p-2 text-primary shadow-soft transition hover:bg-gold hover:text-navy-deep"
+        className="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-background/85 text-primary shadow-soft transition hover:bg-gold hover:text-navy-deep"
       >
         <ChevronLeft className="h-5 w-5" />
       </button>
@@ -35,7 +35,7 @@ function Arrows({ onPrev, onNext }: { onPrev: () => void; onNext: () => void }) 
         type="button"
         aria-label="Next slide"
         onClick={onNext}
-        className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/85 p-2 text-primary shadow-soft transition hover:bg-gold hover:text-navy-deep"
+        className="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-background/85 text-primary shadow-soft transition hover:bg-gold hover:text-navy-deep"
       >
         <ChevronRight className="h-5 w-5" />
       </button>
@@ -53,34 +53,35 @@ function Dots({
   onSelect: (i: number) => void;
 }) {
   return (
-    <div className="absolute inset-x-0 bottom-4 z-10 flex justify-center gap-2">
+    <div className="absolute inset-x-0 bottom-1 z-10 flex justify-center gap-1">
       {Array.from({ length: count }).map((_, i) => (
         <button
           key={i}
           type="button"
           aria-label={`Go to slide ${i + 1}`}
           onClick={() => onSelect(i)}
-          className={cn(
-            "h-2.5 rounded-full transition-all",
-            i === index ? "w-7 bg-gold" : "w-2.5 bg-background/70",
-          )}
-        />
+          aria-current={i === index ? "true" : undefined}
+          className="flex h-11 w-11 items-center justify-center"
+        >
+          <span
+            className={cn(
+              "h-2.5 rounded-full transition-all",
+              i === index ? "w-7 bg-gold" : "w-2.5 bg-background/70",
+            )}
+          />
+        </button>
       ))}
     </div>
   );
 }
 
-export function HeroCarousel({
-  images,
-}: {
-  images: string[];
-}) {
+export function HeroCarousel({ images }: { images: string[] }) {
   const [paused, setPaused] = useState(false);
   const { index, setIndex, next, prev } = useAutoplay(images.length, 5000, paused);
 
   return (
     <section
-      className="relative h-[62vh] min-h-[420px] w-full overflow-hidden bg-navy-deep"
+      className="relative aspect-video w-full overflow-hidden bg-navy-deep sm:aspect-auto sm:h-[62vh] sm:min-h-[420px]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -92,7 +93,12 @@ export function HeroCarousel({
             i === index ? "opacity-100" : "opacity-0",
           )}
         >
-          <SmartImage src={src} alt="Campus" className="h-full w-full" />
+          <SmartImage
+            src={src}
+            alt="Campus"
+            className="h-full w-full"
+            imgClassName="object-contain sm:object-cover"
+          />
         </div>
       ))}
 
@@ -102,11 +108,7 @@ export function HeroCarousel({
   );
 }
 
-export function GalleryCarousel({
-  slides,
-}: {
-  slides: { src: string; caption?: string }[];
-}) {
+export function GalleryCarousel({ slides }: { slides: { src: string; caption?: string }[] }) {
   const [paused, setPaused] = useState(false);
   const { index, setIndex, next, prev } = useAutoplay(slides.length, 4000, paused);
 

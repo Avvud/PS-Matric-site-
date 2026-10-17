@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ImageIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -11,13 +11,21 @@ export function SmartImage({
   alt,
   className,
   imgClassName,
+  fallbackSrc,
 }: {
   src: string;
   alt: string;
   className?: string;
   imgClassName?: string;
+  fallbackSrc?: string;
 }) {
   const [failed, setFailed] = useState(false);
+  const [usingFallback, setUsingFallback] = useState(false);
+
+  useEffect(() => {
+    setFailed(false);
+    setUsingFallback(false);
+  }, [src]);
 
   return (
     <div className={cn("relative overflow-hidden bg-muted", className)}>
@@ -31,10 +39,16 @@ export function SmartImage({
         </div>
       ) : (
         <img
-          src={src}
+          src={usingFallback && fallbackSrc ? fallbackSrc : src}
           alt={alt}
           loading="lazy"
-          onError={() => setFailed(true)}
+          onError={() => {
+            if (fallbackSrc && !usingFallback && fallbackSrc !== src) {
+              setUsingFallback(true);
+            } else {
+              setFailed(true);
+            }
+          }}
           className={cn("h-full w-full object-cover", imgClassName)}
         />
       )}

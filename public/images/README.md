@@ -23,9 +23,22 @@ Recommended: 1920×1080 landscape.
 
 - `public/images/about-campus.jpg` — campus photo (4:3)
 
-## Inner page banner
+## Page banners
 
-- `public/images/page-banner.jpg` — wide campus shot (1920×500)
+Each non-home page has its own banner image. Add or replace the images under
+`public/images/banners/` using the paths configured in `src/lib/site.ts`
+(`PAGE_BANNER_IMAGES`). For example:
+
+- `public/images/banners/about/history.jpg`
+- `public/images/banners/admissions/uniform.jpg`
+- `public/images/banners/academics/curriculum.jpg`
+- `public/images/banners/events/annual-day.jpg`
+- `public/images/banners/contact.jpg`
+
+Use a wide landscape image (recommended: 1920×500). Event year/detail pages use
+the banner configured for that event, with `public/images/page-banner.jpeg` as
+the backup if an individual banner is missing. If both images are unavailable,
+the page shows the expected upload path.
 
 ## Gallery carousel (homepage + Gallery page)
 

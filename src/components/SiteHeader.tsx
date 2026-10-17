@@ -32,10 +32,7 @@ export function SiteHeader() {
             </Link>
             {hasChildren && (
               <ChevronDown
-                className={cn(
-                  "h-3.5 w-3.5",
-                  depth > 0 ? "mr-3 text-black" : "text-white",
-                )}
+                className={cn("h-3.5 w-3.5", depth > 0 ? "mr-3 text-black" : "text-white")}
               />
             )}
             {depth === 0 && (
@@ -85,7 +82,12 @@ export function SiteHeader() {
               style={{ paddingLeft: `${0.65 + depth * 1.15}rem` }}
             >
               {item.label}
-              <ChevronDown className={cn("h-4 w-4 transition-transform text-white", isExpanded && "rotate-180")} />
+              <ChevronDown
+                className={cn(
+                  "h-4 w-4 transition-transform text-white",
+                  isExpanded && "rotate-180",
+                )}
+              />
             </button>
             {isExpanded && (
               <ul className="bg-navy pb-2">
@@ -128,9 +130,9 @@ export function SiteHeader() {
         scrolled && "shadow-card",
       )}
     >
-      <div className="container-page flex items-center justify-between gap-4 py-3">
-        <div className="flex items-center gap-4">
-          <div className="h-16 w-16 overflow-hidden rounded-full bg-cream/10 shadow-soft ring-2 ring-gold/50 sm:h-20 sm:w-20">
+      <div className="container-page flex items-center justify-between gap-2 py-2 sm:gap-4 sm:py-3">
+        <div className="flex min-w-0 items-center gap-2 max-[360px]:gap-1 sm:gap-4">
+          <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-cream/10 shadow-soft ring-2 ring-gold/50 max-[360px]:h-8 max-[360px]:w-8 sm:h-20 sm:w-20">
             <img
               src={IMAGES.founderlogo}
               alt="School bro image"
@@ -138,25 +140,29 @@ export function SiteHeader() {
               onError={(e) => {
                 e.currentTarget.style.display = "none";
                 e.currentTarget.parentElement!.style.background = "#f6f3eb";
-                e.currentTarget.parentElement!.innerHTML = "<span class=\'flex h-full w-full items-center justify-center text-[10px] font-bold uppercase tracking-[0.24em] text-gold\'>BRO</span>";
+                e.currentTarget.parentElement!.innerHTML =
+                  "<span class='flex h-full w-full items-center justify-center text-[10px] font-bold uppercase tracking-[0.24em] text-gold'>BRO</span>";
               }}
             />
           </div>
 
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex min-w-0 items-center gap-2 max-[360px]:gap-1 sm:gap-3">
             <img
               src={IMAGES.logo}
               alt="PS Matric logo"
-              className="h-16 w-16 rounded-full bg-cream/10 object-cover shadow-soft ring-2 ring-gold/50 sm:h-20 sm:w-20"
+              className="h-10 w-10 shrink-0 rounded-full bg-cream/10 object-cover shadow-soft ring-2 ring-gold/50 max-[360px]:h-8 max-[360px]:w-8 sm:h-20 sm:w-20"
               onError={(e) => {
                 e.currentTarget.style.visibility = "hidden";
               }}
             />
-            <span className="leading-tight">
-              <span className="block font-display text-xl font-bold uppercase tracking-wide text-cream sm:text-2xl lg:text-[1.8rem]">
+            <span className="min-w-0 leading-tight">
+              <span className="block font-display text-lg font-bold uppercase leading-tight tracking-wide text-cream sm:hidden">
                 {SCHOOL_NAME}
               </span>
-              <span className="block text-[10px] font-medium uppercase tracking-[0.22em] text-gold sm:text-xs">
+              <span className="hidden font-display text-xl font-bold uppercase tracking-wide text-cream sm:block sm:text-2xl lg:text-[1.8rem]">
+                {SCHOOL_NAME}
+              </span>
+              <span className="block text-[9px] font-medium uppercase tracking-[0.16em] text-gold sm:text-xs sm:tracking-[0.22em]">
                 {SCHOOL_TAGLINE}
               </span>
             </span>
@@ -165,12 +171,12 @@ export function SiteHeader() {
 
         <button
           type="button"
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="rounded-md p-2 text-cream lg:hidden"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-cream lg:hidden"
         >
-          {open ? <Menu className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 

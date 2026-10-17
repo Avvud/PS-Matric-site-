@@ -37,12 +37,8 @@ import { Route as AdmissionsPortalRouteImport } from './routes/admissions.portal
 import { Route as AdmissionsUniformRouteImport } from './routes/admissions.uniform'
 import { Route as EventsAksharaAbhyasRouteImport } from './routes/events.akshara-abhyas'
 import { Route as EventsAnnualDayRouteImport } from './routes/events.annual-day'
-import { Route as EventsFancyDressRouteImport } from './routes/events.fancy-dress'
 import { Route as EventsIndependenceDayRouteImport } from './routes/events.independence-day'
-import { Route as EventsPrimaryAnnualDayRouteImport } from './routes/events.primary-annual-day'
-import { Route as EventsPrimarySportsDayRouteImport } from './routes/events.primary-sports-day'
 import { Route as EventsProjectDayRouteImport } from './routes/events.project-day'
-import { Route as EventsRepublicDayRouteImport } from './routes/events.republic-day'
 import { Route as EventsSportsDayRouteImport } from './routes/events.sports-day'
 import { Route as EventsVidhyaPraveshRouteImport } from './routes/events.vidhya-pravesh'
 import { Route as LifeAchievementsRouteImport } from './routes/life.achievements'
@@ -196,34 +192,14 @@ const EventsAnnualDayRoute = EventsAnnualDayRouteImport.update({
   path: '/events/annual-day',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EventsFancyDressRoute = EventsFancyDressRouteImport.update({
-  id: '/events/fancy-dress',
-  path: '/events/fancy-dress',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const EventsIndependenceDayRoute = EventsIndependenceDayRouteImport.update({
   id: '/events/independence-day',
   path: '/events/independence-day',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EventsPrimaryAnnualDayRoute = EventsPrimaryAnnualDayRouteImport.update({
-  id: '/events/primary-annual-day',
-  path: '/events/primary-annual-day',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EventsPrimarySportsDayRoute = EventsPrimarySportsDayRouteImport.update({
-  id: '/events/primary-sports-day',
-  path: '/events/primary-sports-day',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const EventsProjectDayRoute = EventsProjectDayRouteImport.update({
   id: '/events/project-day',
   path: '/events/project-day',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EventsRepublicDayRoute = EventsRepublicDayRouteImport.update({
-  id: '/events/republic-day',
-  path: '/events/republic-day',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsSportsDayRoute = EventsSportsDayRouteImport.update({
@@ -291,12 +267,8 @@ export interface FileRoutesByFullPath {
   '/admissions/uniform': typeof AdmissionsUniformRoute
   '/events/akshara-abhyas': typeof EventsAksharaAbhyasRoute
   '/events/annual-day': typeof EventsAnnualDayRoute
-  '/events/fancy-dress': typeof EventsFancyDressRoute
   '/events/independence-day': typeof EventsIndependenceDayRoute
-  '/events/primary-annual-day': typeof EventsPrimaryAnnualDayRoute
-  '/events/primary-sports-day': typeof EventsPrimarySportsDayRoute
   '/events/project-day': typeof EventsProjectDayRoute
-  '/events/republic-day': typeof EventsRepublicDayRoute
   '/events/sports-day': typeof EventsSportsDayRoute
   '/events/vidhya-pravesh': typeof EventsVidhyaPraveshRoute
   '/life/achievements': typeof LifeAchievementsRoute
@@ -334,12 +306,8 @@ export interface FileRoutesByTo {
   '/admissions/uniform': typeof AdmissionsUniformRoute
   '/events/akshara-abhyas': typeof EventsAksharaAbhyasRoute
   '/events/annual-day': typeof EventsAnnualDayRoute
-  '/events/fancy-dress': typeof EventsFancyDressRoute
   '/events/independence-day': typeof EventsIndependenceDayRoute
-  '/events/primary-annual-day': typeof EventsPrimaryAnnualDayRoute
-  '/events/primary-sports-day': typeof EventsPrimarySportsDayRoute
   '/events/project-day': typeof EventsProjectDayRoute
-  '/events/republic-day': typeof EventsRepublicDayRoute
   '/events/sports-day': typeof EventsSportsDayRoute
   '/events/vidhya-pravesh': typeof EventsVidhyaPraveshRoute
   '/life/achievements': typeof LifeAchievementsRoute
@@ -378,12 +346,8 @@ export interface FileRoutesById {
   '/admissions/uniform': typeof AdmissionsUniformRoute
   '/events/akshara-abhyas': typeof EventsAksharaAbhyasRoute
   '/events/annual-day': typeof EventsAnnualDayRoute
-  '/events/fancy-dress': typeof EventsFancyDressRoute
   '/events/independence-day': typeof EventsIndependenceDayRoute
-  '/events/primary-annual-day': typeof EventsPrimaryAnnualDayRoute
-  '/events/primary-sports-day': typeof EventsPrimarySportsDayRoute
   '/events/project-day': typeof EventsProjectDayRoute
-  '/events/republic-day': typeof EventsRepublicDayRoute
   '/events/sports-day': typeof EventsSportsDayRoute
   '/events/vidhya-pravesh': typeof EventsVidhyaPraveshRoute
   '/life/achievements': typeof LifeAchievementsRoute
@@ -423,12 +387,8 @@ export interface FileRouteTypes {
     | '/admissions/uniform'
     | '/events/akshara-abhyas'
     | '/events/annual-day'
-    | '/events/fancy-dress'
     | '/events/independence-day'
-    | '/events/primary-annual-day'
-    | '/events/primary-sports-day'
     | '/events/project-day'
-    | '/events/republic-day'
     | '/events/sports-day'
     | '/events/vidhya-pravesh'
     | '/life/achievements'
@@ -466,12 +426,8 @@ export interface FileRouteTypes {
     | '/admissions/uniform'
     | '/events/akshara-abhyas'
     | '/events/annual-day'
-    | '/events/fancy-dress'
     | '/events/independence-day'
-    | '/events/primary-annual-day'
-    | '/events/primary-sports-day'
     | '/events/project-day'
-    | '/events/republic-day'
     | '/events/sports-day'
     | '/events/vidhya-pravesh'
     | '/life/achievements'
@@ -509,12 +465,8 @@ export interface FileRouteTypes {
     | '/admissions/uniform'
     | '/events/akshara-abhyas'
     | '/events/annual-day'
-    | '/events/fancy-dress'
     | '/events/independence-day'
-    | '/events/primary-annual-day'
-    | '/events/primary-sports-day'
     | '/events/project-day'
-    | '/events/republic-day'
     | '/events/sports-day'
     | '/events/vidhya-pravesh'
     | '/life/achievements'
@@ -553,12 +505,8 @@ export interface RootRouteChildren {
   AdmissionsUniformRoute: typeof AdmissionsUniformRoute
   EventsAksharaAbhyasRoute: typeof EventsAksharaAbhyasRoute
   EventsAnnualDayRoute: typeof EventsAnnualDayRoute
-  EventsFancyDressRoute: typeof EventsFancyDressRoute
   EventsIndependenceDayRoute: typeof EventsIndependenceDayRoute
-  EventsPrimaryAnnualDayRoute: typeof EventsPrimaryAnnualDayRoute
-  EventsPrimarySportsDayRoute: typeof EventsPrimarySportsDayRoute
   EventsProjectDayRoute: typeof EventsProjectDayRoute
-  EventsRepublicDayRoute: typeof EventsRepublicDayRoute
   EventsSportsDayRoute: typeof EventsSportsDayRoute
   EventsVidhyaPraveshRoute: typeof EventsVidhyaPraveshRoute
   LifeAchievementsRoute: typeof LifeAchievementsRoute
@@ -766,13 +714,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsAnnualDayRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/events/fancy-dress': {
-      id: '/events/fancy-dress'
-      path: '/events/fancy-dress'
-      fullPath: '/events/fancy-dress'
-      preLoaderRoute: typeof EventsFancyDressRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/events/independence-day': {
       id: '/events/independence-day'
       path: '/events/independence-day'
@@ -780,32 +721,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsIndependenceDayRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/events/primary-annual-day': {
-      id: '/events/primary-annual-day'
-      path: '/events/primary-annual-day'
-      fullPath: '/events/primary-annual-day'
-      preLoaderRoute: typeof EventsPrimaryAnnualDayRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/events/primary-sports-day': {
-      id: '/events/primary-sports-day'
-      path: '/events/primary-sports-day'
-      fullPath: '/events/primary-sports-day'
-      preLoaderRoute: typeof EventsPrimarySportsDayRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/events/project-day': {
       id: '/events/project-day'
       path: '/events/project-day'
       fullPath: '/events/project-day'
       preLoaderRoute: typeof EventsProjectDayRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/events/republic-day': {
-      id: '/events/republic-day'
-      path: '/events/republic-day'
-      fullPath: '/events/republic-day'
-      preLoaderRoute: typeof EventsRepublicDayRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events/sports-day': {
@@ -889,12 +809,8 @@ const rootRouteChildren: RootRouteChildren = {
   AdmissionsUniformRoute: AdmissionsUniformRoute,
   EventsAksharaAbhyasRoute: EventsAksharaAbhyasRoute,
   EventsAnnualDayRoute: EventsAnnualDayRoute,
-  EventsFancyDressRoute: EventsFancyDressRoute,
   EventsIndependenceDayRoute: EventsIndependenceDayRoute,
-  EventsPrimaryAnnualDayRoute: EventsPrimaryAnnualDayRoute,
-  EventsPrimarySportsDayRoute: EventsPrimarySportsDayRoute,
   EventsProjectDayRoute: EventsProjectDayRoute,
-  EventsRepublicDayRoute: EventsRepublicDayRoute,
   EventsSportsDayRoute: EventsSportsDayRoute,
   EventsVidhyaPraveshRoute: EventsVidhyaPraveshRoute,
   LifeAchievementsRoute: LifeAchievementsRoute,

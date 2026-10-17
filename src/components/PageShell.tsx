@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
+import { useRouterState } from "@tanstack/react-router";
 import { SmartImage } from "@/components/SmartImage";
-import { IMAGES } from "@/lib/site";
+import { getPageBannerImage, IMAGES } from "@/lib/site";
 
 export function PageBanner({
   title,
@@ -11,17 +12,24 @@ export function PageBanner({
   subtitle?: string | undefined;
   showImage?: boolean;
 }) {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const bannerImage = getPageBannerImage(pathname);
+
   return (
     <section
       className={`relative w-full overflow-hidden ${
-        showImage
-          ? "h-56 bg-navy-deep sm:h-64"
-          : "border-b border-border bg-cream py-10 sm:py-14"
+        showImage ? "h-56 bg-navy-deep sm:h-64" : "border-b border-border bg-cream py-10 sm:py-14"
       }`}
     >
       {showImage && (
         <>
-          <SmartImage src={IMAGES.banner} alt="" className="absolute inset-0 h-full w-full" />
+          <SmartImage
+            key={bannerImage}
+            src={bannerImage}
+            fallbackSrc={IMAGES.banner}
+            alt=""
+            className="absolute inset-0 h-full w-full"
+          />
           <div className="absolute inset-0 bg-black/40" />
         </>
       )}
@@ -66,8 +74,8 @@ export function ContentPage({
   return (
     <>
       <PageBanner title={title} subtitle={subtitle} showImage={showBannerImage} />
-      <section className="bg-background py-14">
-        <article className="container-page max-w-4xl space-y-5 font-serif text-[17px] leading-8 text-foreground/90 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:uppercase [&_h2]:text-primary [&_li]:ml-5 [&_li]:list-disc">
+      <section className="bg-background py-8 sm:py-14">
+        <article className="container-page max-w-4xl space-y-5 font-serif text-base leading-7 text-foreground/90 sm:text-[17px] sm:leading-8 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:uppercase [&_h2]:text-primary [&_li]:ml-5 [&_li]:list-disc">
           {children}
         </article>
       </section>

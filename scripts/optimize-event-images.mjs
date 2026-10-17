@@ -5,6 +5,16 @@ import sharp from "sharp";
 const eventsDirectory = path.resolve("public/images/events");
 const supportedExtensions = new Set([".jpg", ".jpeg", ".png"]);
 const images = [];
+const eventName = process.argv[2];
+
+let sourceDirectory = eventsDirectory;
+if (eventName) {
+  const entries = await readdir(eventsDirectory, { withFileTypes: true });
+  if (!entries.some((entry) => entry.isDirectory() && entry.name === eventName)) {
+    throw new Error(`Unknown event "${eventName}" in public/images/events.`);
+  }
+  sourceDirectory = path.join(eventsDirectory, eventName);
+}
 
 async function collectImages(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -19,7 +29,7 @@ async function collectImages(directory) {
   }
 }
 
-await collectImages(eventsDirectory);
+await collectImages(sourceDirectory);
 
 let originalBytes = 0;
 let optimizedBytes = 0;

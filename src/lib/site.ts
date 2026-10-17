@@ -47,10 +47,6 @@ export const NAV: NavItem[] = [
       { label: "Annual Day", to: "/events/annual-day" },
       { label: "Independence Day", to: "/events/independence-day" },
       { label: "Project Day", to: "/events/project-day" },
-      { label: "Fancy Dress", to: "/events/fancy-dress" },
-      { label: "Republic Day", to: "/events/republic-day" },
-      { label: "Primary Sports Day", to: "/events/primary-sports-day" },
-      { label: "Primary Annual Day", to: "/events/primary-annual-day" },
     ],
   },
   { label: "Contact", to: "/contact" },
@@ -63,6 +59,46 @@ export const CONTACT = {
   admissions: "admissions@psmatric.in",
   careers: "career_psmatric@gmail.com",
   info: "info@psmatric.in",
+};
+
+// Each page can use its own banner. Replace the files under public/images/banners/,
+// or change a page's path here to use a different filename.
+export const PAGE_BANNER_IMAGES: Record<string, string> = {
+  "/about/advisory-board": "/images/banners/about/advisory-board.jpg",
+  "/about/facilities": "/images/banners/about/facilities.jpeg",
+  "/about/founders-vision": "/images/banners/about/founders-vision.jpg",
+  "/about/history": "/images/banners/about/history.jpg",
+  "/about/managing-committee": "/images/banners/about/managing-committee.jpg",
+  "/about/principals-message": "/images/banners/about/principals-message.jpg",
+  "/about/testimonials": "/images/banners/about/testimonials.jpg",
+  "/about/vision-mission": "/images/banners/about/vision-mission.jpg",
+  "/admissions/faqs": "/images/banners/admissions/faqs.jpg",
+  "/admissions/fee": "/images/banners/admissions/fee.jpg",
+  "/admissions/online-registration": "/images/banners/admissions/online-registration.jpg",
+  "/admissions/portal": "/images/banners/admissions/portal.jpg",
+  "/admissions/uniform": "/images/banners/admissions/uniform.jpg",
+  "/academics/activity-schedule": "/images/banners/academics/activity-schedule.jpg",
+  "/academics/curriculum": "/images/banners/academics/curriculum.jpg",
+  "/academics/examination": "/images/banners/academics/examination.jpg",
+  "/academics/method-of-evaluation": "/images/banners/academics/method-of-evaluation.jpg",
+  "/academics/online-learning": "/images/banners/academics/online-learning.jpg",
+  "/academics/student-resource-corner": "/images/banners/academics/student-resource-corner.jpg",
+  "/academics/syllabus": "/images/banners/academics/syllabus.jpg",
+  "/academics/teaching-methodology": "/images/banners/academics/teaching-methodology.jpg",
+  "/academics/timetable": "/images/banners/academics/timetable.jpg",
+  "/alumni-connect": "/images/banners/alumni-connect.jpg",
+  "/contact": "/images/banners/contact.png",
+  "/life/achievements": "/images/banners/life/achievements.jpg",
+  "/life/gallery": "/images/banners/life/gallery.jpg",
+  "/life/infrastructure": "/images/banners/life/infrastructure.jpg",
+  "/life/student-clubs": "/images/banners/life/student-clubs.jpg",
+  "/mandatory-disclosure": "/images/banners/mandatory-disclosure.jpg",
+  "/events/akshara-abhyas": "/images/banners/events/akshara-abhyas.JPG",
+  "/events/annual-day": "/images/banners/events/annual-day.JPG",
+  "/events/independence-day": "/images/banners/events/independence-day.JPG",
+  "/events/project-day": "/images/banners/events/project-day.JPG",
+  "/events/sports-day": "/images/banners/events/sports-day.JPG",
+  "/events/vidhya-pravesh": "/images/banners/events/vidhya-pravesh.jpeg",
 };
 
 /**
@@ -102,3 +138,8 @@ export const IMAGES = {
   about: "/images/about-campus.jpeg",
   banner: "/images/page-banner.jpeg",
 };
+
+export function getPageBannerImage(pathname: string): string {
+  const eventPath = pathname.split("/").slice(0, 3).join("/");
+  return PAGE_BANNER_IMAGES[pathname] ?? PAGE_BANNER_IMAGES[eventPath] ?? IMAGES.banner;
+}

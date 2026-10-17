@@ -41,7 +41,8 @@ function createEventGallery(
 }
 
 // Add originals to public/images/events/<event>/<year>/, list filenames below,
-// then run `npm run optimize:event-images` to generate gallery-sized WebP files.
+// then run `npm run optimize:event-images -- <event>` to generate gallery-sized
+// WebP files for one event, or omit the event to optimize every event.
 export const EVENT_GALLERIES = {
   "akshara-abhyas": {
     title: "Akshara Abhyas",
@@ -224,22 +225,55 @@ export const EVENT_GALLERIES = {
   },
   "project-day": {
     title: "Project Day",
-    years: createEventGallery("project-day"),
-  },
-  "fancy-dress": {
-    title: "Fancy Dress",
-    years: createEventGallery("fancy-dress"),
-  },
-  "republic-day": {
-    title: "Republic Day",
-    years: createEventGallery("republic-day"),
-  },
-  "primary-sports-day": {
-    title: "Primary Sports Day",
-    years: createEventGallery("primary-sports-day"),
-  },
-  "primary-annual-day": {
-    title: "Primary Annual Day",
-    years: createEventGallery("primary-annual-day"),
+    years: createEventGallery("project-day", {
+      "2025-26": ["1.jpg"],
+      "2026-27": [
+        "RSMV1158.JPG",
+        "RSMV1166.JPG",
+        "RSMV1167.JPG",
+        "RSMV1170.JPG",
+        "RSMV1173.JPG",
+        "RSMV1177.JPG",
+        "RSMV1184.JPG",
+        "RSMV1187.JPG",
+        "RSMV1188.JPG",
+        "RSMV1198.JPG",
+        "RSMV1200.JPG",
+        "RSMV1206.JPG",
+        "RSMV1226.JPG",
+        "RSMV1230.JPG",
+        "RSMV1248.JPG",
+        "RSMV1250.JPG",
+        "RSMV1262.JPG",
+        "RSMV1263.JPG",
+        "RSMV1266.JPG",
+        "RSMV1269.JPG",
+        "RSMV1270.JPG",
+        "RSMV1272.JPG",
+        "RSMV1273.JPG",
+        "RSMV1274.JPG",
+        "RSMV1275.JPG",
+        "RSMV1276.JPG",
+        "RSMV1277.JPG",
+        "RSMV1278.JPG",
+        "RSMV1281.JPG",
+        "RSMV1282.JPG",
+        "RSMV1285.JPG",
+        "RSMV1288.JPG",
+        "RSMV1290.JPG",
+        "RSMV1292.JPG",
+        "RSMV1295.JPG",
+        "RSMV1297.JPG",
+        "RSMV1299.JPG",
+        "RSMV1300.JPG",
+        "RSMV1305.JPG",
+        "RSMV1307.JPG",
+        "RSMV1308.JPG",
+        "RSMV1313.JPG",
+        "RSMV1314.JPG",
+        "RSMV1316.JPG",
+        "RSMV1319.JPG",
+      ],
+    }),
   },
 };
