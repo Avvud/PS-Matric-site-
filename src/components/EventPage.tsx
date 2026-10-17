@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageBanner } from "@/components/PageShell";
-import { EVENT_GALLERY_YEARS } from "@/lib/site";
+import { EVENT_GALLERY_YEARS } from "@/lib/event-galleries";
 
 export function EventPage({ title }: { title: string }) {
   const slug = title.toLowerCase().replaceAll(" ", "-");

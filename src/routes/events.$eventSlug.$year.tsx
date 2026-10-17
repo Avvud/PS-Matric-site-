@@ -3,7 +3,7 @@ import { ArrowLeft, ImageIcon } from "lucide-react";
 import { PageBanner } from "@/components/PageShell";
 import { SmartImage } from "@/components/SmartImage";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { EVENT_GALLERIES } from "@/lib/site";
+import { EVENT_GALLERIES } from "@/lib/event-galleries";
 
 export const Route = createFileRoute("/events/$eventSlug/$year")({
   head: () => ({
@@ -60,7 +60,7 @@ function EventYearGallery() {
           {gallery.photos.length > 0 ? (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {gallery.photos.map((photo) => (
-                <figure key={photo} className="overflow-hidden rounded-xl shadow-soft">
+                <figure key={photo.src} className="overflow-hidden rounded-xl shadow-soft">
                   <Dialog>
                     <DialogTrigger asChild>
                       <button
@@ -69,7 +69,7 @@ function EventYearGallery() {
                         className="block w-full cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                       >
                         <SmartImage
-                          src={photo}
+                          src={photo.thumbnail}
                           alt={`${event.title} ${year}`}
                           className="aspect-[4/3]"
                         />
@@ -78,8 +78,9 @@ function EventYearGallery() {
                     <DialogContent className="max-w-5xl border-0 bg-transparent p-2 shadow-none">
                       <DialogTitle className="sr-only">{`${event.title} ${year} photo`}</DialogTitle>
                       <img
-                        src={photo}
+                        src={photo.src}
                         alt={`${event.title} ${year}`}
+                        decoding="async"
                         className="mx-auto max-h-[85vh] w-auto max-w-full rounded object-contain"
                       />
                     </DialogContent>
@@ -96,8 +97,10 @@ function EventYearGallery() {
               <p className="mt-2 font-serif text-sm text-muted-foreground">
                 Add images to{" "}
                 <code className="rounded bg-muted px-2 py-1">{gallery.folderUrl}</code> and list
-                their paths in <code className="rounded bg-muted px-2 py-1">photos</code> in{" "}
-                <code className="rounded bg-muted px-2 py-1">src/lib/site.ts</code>.
+                their filenames in <code className="rounded bg-muted px-2 py-1">photos</code> in{" "}
+                <code className="rounded bg-muted px-2 py-1">src/lib/event-galleries.ts</code>, then
+                run{" "}
+                <code className="rounded bg-muted px-2 py-1">npm run optimize:event-images</code>.
               </p>
             </div>
           )}
