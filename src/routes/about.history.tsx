@@ -77,13 +77,13 @@ function Page() {
                 className="block w-full cursor-zoom-in rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 <SmartImage
-                  src="/images/Founder.png"
+                  src="/images/founderlogo.jpeg"
                   alt="Shri. Pennathur Subramanya Iyer"
                   className="mx-auto aspect-[4/5] w-full max-w-[250px] border-2 border-primary p-1"
                 />
               </button>
             </DialogTrigger>
-            <DialogContent className="max-w-5xl border-0 bg-transparent p-2 shadow-none">
+            <DialogContent className="max-w-5xl border-0 bg-transparent p-2 shadow-none [&>button]:right-3 [&>button]:top-3 [&>button]:z-10 [&>button]:flex [&>button]:h-11 [&>button]:w-11 [&>button]:items-center [&>button]:justify-center [&>button]:rounded-full [&>button]:bg-white [&>button]:text-black [&>button]:opacity-100 [&>button]:shadow-lg [&>button]:hover:bg-gray-100 [&>button]:focus:ring-2 [&>button]:focus:ring-white">
               <DialogTitle className="sr-only">Shri. Pennathur Subramanya Iyer</DialogTitle>
               <img
                 src="/images/founderlogo.jpeg"

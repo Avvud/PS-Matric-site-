@@ -5,7 +5,8 @@ import sharp from "sharp";
 const eventsDirectory = path.resolve("public/images/events");
 const supportedExtensions = new Set([".jpg", ".jpeg", ".png"]);
 const images = [];
-const eventName = process.argv[2];
+const force = process.argv.includes("--force");
+const eventName = process.argv.slice(2).find((argument) => argument !== "--force");
 
 let sourceDirectory = eventsDirectory;
 if (eventName) {
@@ -33,35 +34,70 @@ await collectImages(sourceDirectory);
 
 let originalBytes = 0;
 let optimizedBytes = 0;
+let optimizedCount = 0;
+let skippedCount = 0;
 
-for (const imagePath of images) {
+async function getUpToDateSize(filePath, sourceModifiedTime) {
+  try {
+    const output = await stat(filePath);
+    return output.mtimeMs >= sourceModifiedTime ? output.size : null;
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return null;
+    }
+    throw error;
+  }
+}
+
+for (const [index, imagePath] of images.entries()) {
   const imageDirectory = path.dirname(imagePath);
   const webpName = `${path.parse(imagePath).name}.webp`;
   const originalSize = await stat(imagePath);
   originalBytes += originalSize.size;
 
   const optimizedDirectory = path.join(imageDirectory, "optimized");
-  await mkdir(optimizedDirectory, { recursive: true });
   const optimizedPath = path.join(optimizedDirectory, webpName);
-  await sharp(imagePath)
-    .rotate()
-    .resize({ width: 2400, height: 2400, fit: "inside", withoutEnlargement: true })
-    .webp({ quality: 82, effort: 5 })
-    .toFile(optimizedPath);
-  optimizedBytes += (await stat(optimizedPath)).size;
-
   const thumbnailsDirectory = path.join(imageDirectory, "thumbnails");
-  await mkdir(thumbnailsDirectory, { recursive: true });
   const thumbnailPath = path.join(thumbnailsDirectory, webpName);
-  await sharp(imagePath)
-    .rotate()
-    .resize({ width: 800, height: 800, fit: "inside", withoutEnlargement: true })
-    .webp({ quality: 76, effort: 4 })
-    .toFile(thumbnailPath);
-  optimizedBytes += (await stat(thumbnailPath)).size;
+  const [optimizedSize, thumbnailSize] = force
+    ? [null, null]
+    : await Promise.all([
+        getUpToDateSize(optimizedPath, originalSize.mtimeMs),
+        getUpToDateSize(thumbnailPath, originalSize.mtimeMs),
+      ]);
+
+  if (optimizedSize !== null && thumbnailSize !== null) {
+    optimizedBytes += optimizedSize + thumbnailSize;
+    skippedCount += 1;
+    continue;
+  }
+
+  await Promise.all([
+    mkdir(optimizedDirectory, { recursive: true }),
+    mkdir(thumbnailsDirectory, { recursive: true }),
+  ]);
+  const pipeline = sharp(imagePath).rotate();
+  await Promise.all([
+    pipeline
+      .clone()
+      .resize({ width: 2400, height: 2400, fit: "inside", withoutEnlargement: true })
+      .webp({ quality: 82, effort: 5 })
+      .toFile(optimizedPath),
+    pipeline
+      .clone()
+      .resize({ width: 800, height: 800, fit: "inside", withoutEnlargement: true })
+      .webp({ quality: 76, effort: 4 })
+      .toFile(thumbnailPath),
+  ]);
+  optimizedBytes += (await stat(optimizedPath)).size + (await stat(thumbnailPath)).size;
+  optimizedCount += 1;
+
+  if (optimizedCount % 20 === 0 || index === images.length - 1) {
+    console.log(`Processed ${index + 1}/${images.length} event images.`);
+  }
 }
 
 const megabytes = (bytes) => (bytes / 1024 / 1024).toFixed(1);
 console.log(
-  `Optimized ${images.length} event images: ${megabytes(originalBytes)} MB originals -> ${megabytes(optimizedBytes)} MB gallery variants.`,
+  `Event images: ${optimizedCount} optimized, ${skippedCount} up to date, ${images.length} total; ${megabytes(originalBytes)} MB originals -> ${megabytes(optimizedBytes)} MB gallery variants.`,
 );

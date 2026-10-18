@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { GraduationCap, Users, Award, CalendarDays } from "lucide-react";
+import { GraduationCap, Users, CalendarDays } from "lucide-react";
 import { HeroCarousel } from "@/components/Carousels";
 import { SmartImage } from "@/components/SmartImage";
 import { IMAGES, SCHOOL_NAME } from "@/lib/site";
@@ -24,10 +24,9 @@ export const Route = createFileRoute("/")({
 });
 
 const STATS = [
-  { icon: CalendarDays, value: "37", label: "Years of Legacy" },
-  { icon: Users, value: "1205+", label: "Students" },
-  { icon: GraduationCap, value: "60+", label: "Faculty Members" },
-  { icon: Award, value: "99%", label: "Board Results" },
+  { icon: CalendarDays, value: "35+", label: "Years of Legacy" },
+  { icon: Users, value: "1200+", label: "Students" },
+  { icon: GraduationCap, value: "50+", label: "Faculty Members" },
 ];
 
 function Home() {

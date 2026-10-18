@@ -1,0 +1,1 @@
+import{t as e}from"./EventPage-BNh3EH_t.js";import{h as t}from"./index-BQrDICkf.js";var n=t(),r=()=>(0,n.jsx)(e,{title:`Republic Day`});export{r as component};
