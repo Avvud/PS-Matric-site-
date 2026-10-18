@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 const STATS = [
   { icon: CalendarDays, value: "35+", label: "Years of Legacy" },
   { icon: Users, value: "1200+", label: "Students" },
-  { icon: GraduationCap, value: "50+", label: "Faculty Members" },
+  { icon: GraduationCap, value: "50", label: "Faculty Members" },
 ];
 
 function Home() {
