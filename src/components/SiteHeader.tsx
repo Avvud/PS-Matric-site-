@@ -132,20 +132,6 @@ export function SiteHeader() {
     >
       <div className="container-page flex items-center justify-between gap-2 py-2 sm:gap-4 sm:py-3">
         <div className="flex min-w-0 items-center gap-2 max-[360px]:gap-1 sm:gap-4">
-          <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-cream/10 shadow-soft ring-2 ring-gold/50 max-[360px]:h-8 max-[360px]:w-8 sm:h-20 sm:w-20">
-            <img
-              src={IMAGES.founderlogo}
-              alt="School bro image"
-              className="h-full w-full object-cover"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-                e.currentTarget.parentElement!.style.background = "#f6f3eb";
-                e.currentTarget.parentElement!.innerHTML =
-                  "<span class='flex h-full w-full items-center justify-center text-[10px] font-bold uppercase tracking-[0.24em] text-gold'>BRO</span>";
-              }}
-            />
-          </div>
-
           <Link to="/" className="flex min-w-0 items-center gap-2 max-[360px]:gap-1 sm:gap-3">
             <img
               src={IMAGES.logo}
@@ -167,6 +153,20 @@ export function SiteHeader() {
               </span>
             </span>
           </Link>
+
+          <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-cream/10 shadow-soft ring-2 ring-gold/50 max-[360px]:h-8 max-[360px]:w-8 sm:h-20 sm:w-20">
+            <img
+              src={IMAGES.founderlogo}
+              alt="School founder logo"
+              className="h-full w-full object-cover"
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+                e.currentTarget.parentElement!.style.background = "#f6f3eb";
+                e.currentTarget.parentElement!.innerHTML =
+                  "<span class='flex h-full w-full items-center justify-center text-[10px] font-bold uppercase tracking-[0.24em] text-gold'>BRO</span>";
+              }}
+            />
+          </div>
         </div>
 
         <button

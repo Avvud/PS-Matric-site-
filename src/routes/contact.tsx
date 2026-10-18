@@ -9,10 +9,13 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact Us | PS Matric" },
       {
         name: "description",
-        content: "Address, phone number and admissions, careers and general enquiry emails for PS Matric, Chennai.",
+        content: "Address, phone number and email contact for PS Matric, Chennai.",
       },
       { property: "og:title", content: "Contact Us | PS Matric" },
-      { property: "og:description", content: "Get in touch with PS Matriculation Higher Secondary School." },
+      {
+        property: "og:description",
+        content: "Get in touch with PS Matriculation Higher Secondary School.",
+      },
     ],
   }),
   component: ContactPage,
@@ -60,34 +63,21 @@ function ContactPage() {
           <div className="rounded-xl border border-border p-6 shadow-soft">
             <div className="flex items-center gap-3">
               <Briefcase className="h-5 w-5 text-gold" />
-              <h2 className="font-display text-xl font-bold uppercase text-primary">Career Opportunities</h2>
+              <h2 className="font-display text-xl font-bold uppercase text-primary">
+                Career Opportunities
+              </h2>
             </div>
             <p className="mt-4 font-serif text-foreground/85">
               Current openings will be listed here as opportunities become available.
             </p>
-            <p className="mt-4 text-xs uppercase tracking-widest text-muted-foreground">Career enquiries</p>
-            <a href={`mailto:${CONTACT.careers}`} className="link-underline font-serif">
-              {CONTACT.careers}
-            </a>
             <h3 className="mt-8 font-display text-xl font-bold uppercase text-primary">Email Us</h3>
             <ul className="mt-4 space-y-4 font-serif">
-              {[
-                { label: "Admissions", value: CONTACT.admissions },
-                { label: "Careers", value: CONTACT.careers },
-                { label: "General Information", value: CONTACT.info },
-              ].map((row) => (
-                <li key={row.label} className="flex items-start gap-3">
-                  <Mail className="mt-1 h-4 w-4 text-gold" />
-                  <span>
-                    <span className="block text-xs uppercase tracking-widest text-muted-foreground">
-                      {row.label}
-                    </span>
-                    <a href={`mailto:${row.value}`} className="link-underline">
-                      {row.value}
-                    </a>
-                  </span>
-                </li>
-              ))}
+              <li className="flex items-start gap-3">
+                <Mail className="mt-1 h-4 w-4 text-gold" />
+                <a href="mailto:psmatric2010@gmail.com" className="link-underline">
+                  psmatric2010@gmail.com
+                </a>
+              </li>
             </ul>
           </div>
         </div>

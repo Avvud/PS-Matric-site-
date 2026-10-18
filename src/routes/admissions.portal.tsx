@@ -11,7 +11,6 @@ function Page() {
     <ContentPage
       title="General Instructions"
       subtitle="School information for students and parents"
-      showBannerImage={false}
     >
       <h2>Examinations</h2>
       <p>Academic performance of students from Standards I to VII will be assessed through Continuous Comprehensive Evaluation (C.C.E.).</p>

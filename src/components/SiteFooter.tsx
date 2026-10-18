@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { CONTACT, SCHOOL_NAME, SCHOOL_TAGLINE } from "@/lib/site";
 
 export function SiteFooter() {
@@ -12,7 +12,7 @@ export function SiteFooter() {
             Nurturing knowledge, character and confidence for generations of learners.
           </p>
           <div className="mt-5 flex gap-3">
-            {[Facebook, Instagram, Youtube].map((Icon, i) => (
+            {[Facebook, Youtube].map((Icon, i) => (
               <a
                 key={i}
                 href="#"
@@ -38,13 +38,9 @@ export function SiteFooter() {
             </li>
             <li className="flex gap-2">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-              <span>
-                {CONTACT.admissions}
-                <br />
-                {CONTACT.careers}
-                <br />
-                {CONTACT.info}
-              </span>
+              <a href={`mailto:${CONTACT.email}`} className="hover:text-gold">
+                {CONTACT.email}
+              </a>
             </li>
           </ul>
         </div>

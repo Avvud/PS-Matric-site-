@@ -12,12 +12,16 @@ export function SmartImage({
   className,
   imgClassName,
   fallbackSrc,
+  loading = "lazy",
+  fetchPriority,
 }: {
   src: string;
   alt: string;
   className?: string;
   imgClassName?: string;
   fallbackSrc?: string;
+  loading?: "eager" | "lazy";
+  fetchPriority?: "high" | "low" | "auto";
 }) {
   const [failed, setFailed] = useState(false);
   const [usingFallback, setUsingFallback] = useState(false);
@@ -41,7 +45,8 @@ export function SmartImage({
         <img
           src={usingFallback && fallbackSrc ? fallbackSrc : src}
           alt={alt}
-          loading="lazy"
+          loading={loading}
+          fetchPriority={fetchPriority}
           onError={() => {
             if (fallbackSrc && !usingFallback && fallbackSrc !== src) {
               setUsingFallback(true);

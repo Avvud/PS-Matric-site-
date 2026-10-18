@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "vite build && node scripts/strip-original-images-from-output.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
+    "optimize:site-images": "node scripts/optimize-site-images.mjs",
+    "optimize:banners": "node scripts/optimize-banner-images.mjs",
     "optimize:event-images": "node scripts/optimize-event-images.mjs"
   },
   "dependencies": {

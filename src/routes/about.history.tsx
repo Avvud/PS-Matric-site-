@@ -86,7 +86,7 @@ function Page() {
             <DialogContent className="max-w-5xl border-0 bg-transparent p-2 shadow-none">
               <DialogTitle className="sr-only">Shri. Pennathur Subramanya Iyer</DialogTitle>
               <img
-                src="/images/Founder.png"
+                src="/images/founderlogo.png"
                 alt="Shri. Pennathur Subramanya Iyer"
                 className="mx-auto max-h-[85vh] w-auto max-w-full rounded object-contain"
               />

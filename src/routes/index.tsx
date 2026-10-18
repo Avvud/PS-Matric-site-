@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { GraduationCap, Users, Award, CalendarDays } from "lucide-react";
-import { HeroCarousel, TestimonialCarousel } from "@/components/Carousels";
+import { HeroCarousel } from "@/components/Carousels";
 import { SmartImage } from "@/components/SmartImage";
 import { IMAGES, SCHOOL_NAME } from "@/lib/site";
 
@@ -28,30 +28,6 @@ const STATS = [
   { icon: Users, value: "1205+", label: "Students" },
   { icon: GraduationCap, value: "60+", label: "Faculty Members" },
   { icon: Award, value: "99%", label: "Board Results" },
-];
-
-const TESTIMONIALS = [
-  {
-    quote:
-      "The years I spent here shaped how I think, work and treat people. The teachers believed in us long before we believed in ourselves.",
-    name: "Alumni Name",
-    batch: "Batch of 2012",
-    photo: IMAGES.alumni[0]!,
-  },
-  {
-    quote:
-      "From the science labs to the sports ground, every corner of this campus taught me something that a textbook could not.",
-    name: "Alumni Name",
-    batch: "Batch of 2016",
-    photo: IMAGES.alumni[1]!,
-  },
-  {
-    quote:
-      "A school that quietly builds character. I carry its discipline and warmth into everything I do today.",
-    name: "Alumni Name",
-    batch: "Batch of 2019",
-    photo: IMAGES.alumni[2]!,
-  },
 ];
 
 function Home() {
@@ -107,7 +83,7 @@ function Home() {
                 Honorary Correspondent [T.G.SHANKAR]
               </p>
               <p className="text-center text-xs uppercase tracking-widest text-muted-foreground">
-                P.S. Matriculation Higher Secondary School
+                B.Sc., ACA
               </p>
             </div>
             <div>
@@ -130,20 +106,13 @@ function Home() {
                   ignorance, awaken knowledge, nurture values and empower every child to move
                   towards a brighter and more meaningful future.
                 </p>
-                <p>
-                  At P.S. Matriculation Higher Secondary School, we strive to blend our rich heritage
-                  with the aspirations of the present, providing our students with a safe, nurturing
-                  and inspiring environment in which they can learn, grow and serve society in all
-                  walks of life.
-                </p>
-                <p>
-                  Guided by the ideals of our Founder and strengthened by the commitment of our
-                  teachers, staff, parents, alumni and well-wishers, we remain dedicated to academic
-                  excellence, character, discipline and responsible citizenship.
-                </p>
-                <p>May the light of knowledge and wisdom continue to guide every member of our school family.</p>
-                <p className="font-semibold italic text-gold">Tamaso Mā Jyotir Gamaya.</p>
               </div>
+              <Link
+                to="/about/correspondents-message"
+                className="link-underline mt-6 inline-block font-semibold"
+              >
+                Read More
+              </Link>
             </div>
           </div>
         </div>
@@ -198,19 +167,6 @@ function Home() {
               </Link>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Alumni testimonials */}
-      <section className="bg-secondary py-16">
-        <div className="container-page">
-          <div className="mb-8 text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-gold">Alumni Voices</p>
-            <h2 className="mt-2 font-display text-3xl font-bold uppercase text-primary sm:text-4xl">
-              Once ours, always ours
-            </h2>
-          </div>
-          <TestimonialCarousel items={TESTIMONIALS} />
         </div>
       </section>
 

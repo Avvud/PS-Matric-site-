@@ -36,9 +36,22 @@ Each non-home page has its own banner image. Add or replace the images under
 - `public/images/banners/contact.jpg`
 
 Use a wide landscape image (recommended: 1920×500). Event year/detail pages use
-the banner configured for that event, with `public/images/page-banner.jpeg` as
+the banner configured for that event, with `public/images/page-banner.JPG` as
 the backup if an individual banner is missing. If both images are unavailable,
 the page shows the expected upload path.
+
+Run `npm run optimize:banners` after adding or replacing banner images. This
+creates resized WebP versions beside each source image and a
+`public/images/page-banner.webp` backup, which the site loads for faster display.
+
+For logos, hero, gallery, uniform and other non-banner images, run
+`npm run optimize:site-images` after adding or replacing a source image. Event
+photos use `npm run optimize:event-images -- <event-slug>`.
+
+Keep original photos in `public/images` for future edits; the site uses their
+WebP variants. The production build checks for optimized variants, then omits
+the source JPG, JPEG and PNG files from the deploy output. It does not delete
+the originals from the project.
 
 ## Gallery carousel (homepage + Gallery page)
 

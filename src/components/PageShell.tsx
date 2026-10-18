@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { useRouterState } from "@tanstack/react-router";
 import { SmartImage } from "@/components/SmartImage";
-import { getPageBannerImage, IMAGES } from "@/lib/site";
+import { getOptimizedBannerImage, getPageBannerImage, IMAGES } from "@/lib/site";
 
 export function PageBanner({
   title,
@@ -13,7 +13,7 @@ export function PageBanner({
   showImage?: boolean;
 }) {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
-  const bannerImage = getPageBannerImage(pathname);
+  const bannerImage = getOptimizedBannerImage(getPageBannerImage(pathname));
 
   return (
     <section
@@ -26,9 +26,11 @@ export function PageBanner({
           <SmartImage
             key={bannerImage}
             src={bannerImage}
-            fallbackSrc={IMAGES.banner}
+            fallbackSrc={getOptimizedBannerImage(IMAGES.banner)}
             alt=""
             className="absolute inset-0 h-full w-full"
+            loading="eager"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-black/40" />
         </>

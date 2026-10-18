@@ -3,7 +3,13 @@ import { ArrowRight } from "lucide-react";
 import { PageBanner } from "@/components/PageShell";
 import { EVENT_GALLERY_YEARS } from "@/lib/event-galleries";
 
-export function EventPage({ title }: { title: string }) {
+export function EventPage({
+  title,
+  years = EVENT_GALLERY_YEARS,
+}: {
+  title: string;
+  years?: readonly (typeof EVENT_GALLERY_YEARS)[number][];
+}) {
   const slug = title.toLowerCase().replaceAll(" ", "-");
 
   return (
@@ -15,7 +21,7 @@ export function EventPage({ title }: { title: string }) {
             Browse photographs from {title} by school year.
           </p>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {EVENT_GALLERY_YEARS.map((year) => (
+            {years.map((year) => (
               <article
                 key={year}
                 className="flex min-h-64 flex-col items-center justify-center rounded-xl bg-card px-6 py-8 text-center shadow-soft"
