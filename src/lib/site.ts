@@ -43,17 +43,18 @@ export const NAV: NavItem[] = [
     children: [
       { label: "Akshara Abhyas", to: "/events/akshara-abhyas" },
       { label: "Vidhya Pravesh", to: "/events/vidhya-pravesh" },
+      { label: "Project Day", to: "/events/project-day" },
       { label: "Sports Day", to: "/events/sports-day" },
+      { label: "Independence Day", to: "/events/independence-day" },
       { label: "Annual Day", to: "/events/annual-day" },
       { label: "Fancy Dress", to: "/events/fancy-dress" },
+      { label: "Republic Day", to: "/events/republic-day" },
       { label: "Primary Annual Day", to: "/events/primary-annual-day" },
       { label: "Primary Sports Day", to: "/events/primary-sports-day" },
-      { label: "Independence Day", to: "/events/independence-day" },
-      { label: "Republic Day", to: "/events/republic-day" },
-      { label: "Project Day", to: "/events/project-day" },
     ],
   },
   { label: "Contact", to: "/contact" },
+  { label: "Alumni Connect", to: "/alumni-connect" },
 ];
 
 export const CONTACT = {
@@ -88,7 +89,7 @@ export const PAGE_BANNER_IMAGES: Record<string, string> = {
   "/academics/syllabus": "/images/banners/academics/syllabus.jpeg",
   "/academics/teaching-methodology": "/images/banners/academics/teaching-methodology.jpg",
   "/academics/timetable": "/images/banners/academics/timetable.jpg",
-  "/alumni-connect": "/images/banners/alumni-connect.jpg",
+  "/alumni-connect": "/images/banners/about/classroom.jpeg",
   "/contact": "/images/banners/contact.png",
   "/life/achievements": "/images/banners/life/achievements.jpg",
   "/life/gallery": "/images/banners/life/gallery.jpg",

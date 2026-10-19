@@ -56,13 +56,6 @@ function Page() {
             family.
           </p>
           <p className="font-semibold italic text-gold">Tamaso Mā Jyotir Gamaya.</p>
-          <p>
-            With warm regards,
-            <br />
-            <strong>T.G. SHANKAR</strong>
-            <br />
-            B.Sc., ACA
-          </p>
         </div>
         <figure className="flex w-full flex-col items-center justify-self-center md:mt-4">
           <SmartImage
